@@ -57,3 +57,7 @@ uv pip install --python .venv/bin/python verifiers datasets openai pytest
 ```
 
 `PRIME_KEY` must be available as an env var (or sourced inline from macOS Keychain via `security find-generic-password -s api_prime -w`).
+
+## License
+
+Apache License 2.0. See [LICENSE](LICENSE).
