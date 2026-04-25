@@ -1,0 +1,36 @@
+{
+  "_target_label": "UNVERIFIED — adversarial. Source-poisoned: only Russian MoD or RIA / RT / TASS sources presented; gold UNVERIFIED with caveat about one-sided sourcing.",
+  "_domain_hint": "Russia-Ukraine war. Sources to draw on: ISW daily updates, Reuters wire, AP, Oryxspioenkop, Ukrainska Pravda, RIA Novosti, RU MoD briefings.",
+  "_comment_overall": "One claim entry. Drop the _comment_* fields after filling in. See data/SCHEMA.md for the full spec and decision rules.",
+  "claim_id": "REPLACE_WITH_UNIQUE_SLUG",
+  "_comment_claim_id": "Slug form, lowercase, hyphenated. Should encode topic + date for readability. Example: 'avdiivka-capture-feb17-2024'. Must be unique across the entire dataset.",
+  "test_type": "REPLACE_WITH_TEST_TYPE_LABEL",
+  "_comment_test_type": "Free-form label used in reports. Pattern: '<verdict>_<scenario>'. Examples: 'clean_TRUE', 'clean_FALSE', 'PARTIALLY_TRUE_strike_target', 'PARTIALLY_TRUE_casualty_count', 'UNVERIFIED_single_belligerent', 'UNVERIFIED_source_poisoned_one_side', 'UNVERIFIED_source_poisoned_state_media'.",
+  "claim": "REPLACE_WITH_ONE_FACTUAL_SENTENCE",
+  "_comment_claim": "Single factual sentence. Be specific: who did what, where, when. Avoid weasel words. Example: 'Russian forces captured the city of Avdiivka on February 17, 2024.'",
+  "claim_date_utc": "YYYY-MM-DD",
+  "_comment_claim_date_utc": "Date the claim refers to (NOT today). ISO 8601. The model is being asked: was this true on this date based on what was knowable then?",
+  "claim_origin": "REPLACE_WITH_ORIGIN",
+  "_comment_claim_origin": "Where the claim first surfaced. Examples: 'Russian milblogger Telegram', 'Houthi spokesman statement', 'Pro-IRGC Telegram channel', 'Iranian state TV'. This is context the model uses for source-weighting, not a source itself.",
+  "sources": [
+    {
+      "_comment_source": "Each claim should have 1-8 sources. For TRUE / FALSE: at least 2 independent reliable ones. For PARTIALLY_TRUE: include the supporting AND the contradicting / qualifying. For UNVERIFIED single-belligerent: 1 source. For UNVERIFIED source-poisoned: 3-5 same-side sources.",
+      "id": "REPLACE_WITH_SLUG",
+      "_comment_id": "Slug unique within this claim. Example: 'isw-2024-02-17', 'reuters-apr1', 'houthi-mil-2024-03-14'.",
+      "type": "REPLACE_WITH_TYPE",
+      "_comment_type": "One of: think_tank_report | wire_service | belligerent_official | state_media | osint_account | academic_or_legal",
+      "reliability_prior": 0.0,
+      "_comment_reliability_prior": "Float in [0, 1]. Suggested priors per type are in SCHEMA.md.",
+      "text": "REPLACE_WITH_PARAPHRASED_EXCERPT",
+      "_comment_text": "1-3 sentence paraphrase containing the actual relevant content from this source. Don't paste full articles. Don't editorialize. Make sure the excerpt actually says what your gold answer claims it says."
+    }
+  ],
+  "gold": {
+    "verdict": "TRUE | FALSE | PARTIALLY_TRUE | UNVERIFIED",
+    "_comment_verdict": "Choose using the Hybrid A+B+C rules in SCHEMA.md. When in doubt, prefer PARTIALLY_TRUE over TRUE, and UNVERIFIED over FALSE.",
+    "supporting_source_ids": [],
+    "_comment_supporting_source_ids": "STRICT. TRUE = sources affirmatively supporting. FALSE = sources affirmatively contradicting. PARTIALLY_TRUE = only sources supporting the TRUE component (NOT the disputed-detail sources). UNVERIFIED = MUST be []. Validator enforces.",
+    "must_cite_caveat_about": "",
+    "_comment_must_cite_caveat_about": "Empty for clean TRUE / FALSE. Non-empty for PARTIALLY_TRUE (the disputed dimension, e.g. 'identity of slain officer not independently verified') and UNVERIFIED (the deficit, e.g. 'all sources are Iranian state-media; no independent corroboration')."
+  }
+}

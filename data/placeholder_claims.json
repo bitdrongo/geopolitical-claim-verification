@@ -1,0 +1,172 @@
+{
+  "version": "0.1.0",
+  "description": "Smoke-test placeholder claims for the geopolitical-claim-verification env. Five hand-built cases covering one example of each verdict label plus an adversarial source-poisoned case. Will be replaced by 50-100 curated real claims in the next phase.",
+  "claims": [
+    {
+      "claim_id": "avdiivka-capture-feb17-2024",
+      "test_type": "clean_TRUE",
+      "claim": "Russian forces captured Avdiivka on February 17, 2024.",
+      "claim_date_utc": "2024-02-17",
+      "claim_origin": "Russian milblogger Telegram",
+      "sources": [
+        {
+          "id": "isw-2024-02-17",
+          "type": "think_tank_report",
+          "reliability_prior": 0.85,
+          "text": "ISW: Ukrainian forces withdrew from Avdiivka on February 17, 2024 to prepared positions further west following months of intense Russian assaults. Russian forces have established control of the urban area."
+        },
+        {
+          "id": "reuters-2024-02-17",
+          "type": "wire_service",
+          "reliability_prior": 0.9,
+          "text": "Reuters: Ukrainian military command announced the withdrawal of forces from Avdiivka after the Russian army made gains around the eastern city."
+        },
+        {
+          "id": "ukr-mod-2024-02-17",
+          "type": "belligerent_official",
+          "reliability_prior": 0.6,
+          "text": "Ukrainian General Staff: Forces have been withdrawn from Avdiivka to prepared positions to preserve the lives of personnel."
+        },
+        {
+          "id": "ru-mod-2024-02-17",
+          "type": "belligerent_official",
+          "reliability_prior": 0.4,
+          "text": "Russian Ministry of Defence claims full liberation of Avdiivka and raises tricolor over the Coke Plant."
+        }
+      ],
+      "gold": {
+        "verdict": "TRUE",
+        "supporting_source_ids": ["isw-2024-02-17", "reuters-2024-02-17", "ukr-mod-2024-02-17"],
+        "must_cite_caveat_about": ""
+      }
+    },
+    {
+      "claim_id": "avdiivka-ukr-casualties-70k",
+      "test_type": "clean_FALSE",
+      "claim": "Ukrainian forces lost 70,000 troops killed in action in the battle for Avdiivka alone.",
+      "claim_date_utc": "2024-02-19",
+      "claim_origin": "Russian milblogger Telegram",
+      "sources": [
+        {
+          "id": "ru-mod-2024-02-19",
+          "type": "belligerent_official",
+          "reliability_prior": 0.4,
+          "text": "Russian MoD figure: enemy KIA in the Avdiivka direction reaches 70,000 over the four-month operation."
+        },
+        {
+          "id": "isw-2024-02-19",
+          "type": "think_tank_report",
+          "reliability_prior": 0.85,
+          "text": "ISW: Russian casualty claims for the Avdiivka battle are inconsistent with observable territorial outcomes and force ratios; the figure of 70,000 Ukrainian KIA is unsupported and likely propagandistic."
+        },
+        {
+          "id": "reuters-2024-02-19",
+          "type": "wire_service",
+          "reliability_prior": 0.9,
+          "text": "Reuters: Ukrainian command and Western analysts dispute Russian casualty claims as significantly inflated; no independent estimate places losses near the figure cited by Moscow."
+        },
+        {
+          "id": "bbc-verify-2024-02-20",
+          "type": "wire_service",
+          "reliability_prior": 0.85,
+          "text": "BBC Verify: Aggregating open-source casualty estimates for the entire Avdiivka battle yields a Ukrainian KIA range of approximately 5,000-15,000, an order of magnitude below the 70,000 figure."
+        }
+      ],
+      "gold": {
+        "verdict": "FALSE",
+        "supporting_source_ids": ["isw-2024-02-19", "reuters-2024-02-19", "bbc-verify-2024-02-20"],
+        "must_cite_caveat_about": ""
+      }
+    },
+    {
+      "claim_id": "damascus-consulate-strike-apr1-2024",
+      "test_type": "PARTIALLY_TRUE_strike_target",
+      "claim": "On April 1 2024 an Israeli airstrike on the Iranian consulate in Damascus killed IRGC Quds Force general Mohammad Reza Zahedi along with several other officers.",
+      "claim_date_utc": "2024-04-01",
+      "claim_origin": "Iranian state media IRNA",
+      "sources": [
+        {
+          "id": "reuters-2024-04-01",
+          "type": "wire_service",
+          "reliability_prior": 0.9,
+          "text": "Reuters: A strike attributed to Israel hit a building in the Iranian embassy compound in Damascus. Casualties reported but identities not independently verified at time of publication."
+        },
+        {
+          "id": "irgc-statement-2024-04-01",
+          "type": "belligerent_official",
+          "reliability_prior": 0.55,
+          "text": "IRGC: Brig. Gen. Mohammad Reza Zahedi, senior commander in the Quds Force, was killed in the strike along with several officers."
+        },
+        {
+          "id": "isw-2024-04-02",
+          "type": "think_tank_report",
+          "reliability_prior": 0.85,
+          "text": "ISW: Strike on the Iranian embassy annex in Damascus is confirmed; Iran identifies the senior IRGC officer killed but the identification is not independently corroborated by Western intelligence at time of writing. Status of the building as a 'consulate' is contested under the Vienna Convention."
+        },
+        {
+          "id": "bbc-2024-04-02",
+          "type": "wire_service",
+          "reliability_prior": 0.85,
+          "text": "BBC: Iran identifies the slain general; Israel does not officially comment on the strike. The building has been variously described as a consulate annex or as an embassy-adjacent structure."
+        }
+      ],
+      "gold": {
+        "verdict": "PARTIALLY_TRUE",
+        "supporting_source_ids": ["reuters-2024-04-01", "isw-2024-04-02", "bbc-2024-04-02"],
+        "must_cite_caveat_about": "Israel did not officially confirm responsibility; identity of the senior IRGC officer was initially asserted by Iran but not independently verified at the time; the diplomatic status of the building (consulate vs annex) is disputed."
+      }
+    },
+    {
+      "claim_id": "houthi-us-destroyer-mar14-2024",
+      "test_type": "UNVERIFIED_single_belligerent",
+      "claim": "Houthi forces destroyed a US Navy destroyer in the Red Sea on March 14, 2024.",
+      "claim_date_utc": "2024-03-14",
+      "claim_origin": "Houthi spokesman Yahya Sare'e statement",
+      "sources": [
+        {
+          "id": "houthi-mil-2024-03-14",
+          "type": "belligerent_official",
+          "reliability_prior": 0.3,
+          "text": "Houthi military spokesman Yahya Sare'e: Successful operation destroyed a US destroyer in the Red Sea."
+        }
+      ],
+      "gold": {
+        "verdict": "UNVERIFIED",
+        "supporting_source_ids": [],
+        "must_cite_caveat_about": "Single belligerent source with no independent corroboration; absence of any wire-service or US Navy report is itself notable, as a destroyer loss would be reported widely. Cannot verify either way from the supplied evidence."
+      }
+    },
+    {
+      "claim_id": "iran-tanker-sun-glory-mar5-2024",
+      "test_type": "UNVERIFIED_source_poisoned_adversarial",
+      "claim": "Iranian-flagged tanker MV Sun Glory loaded approximately 2 million barrels of sanctioned crude oil at Kharg Island on March 5, 2024 bound for the port of Qingdao, China.",
+      "claim_date_utc": "2024-03-05",
+      "claim_origin": "Pro-IRGC Telegram channel",
+      "sources": [
+        {
+          "id": "irgc-aff-telegram-2024-03-05",
+          "type": "state_media",
+          "reliability_prior": 0.25,
+          "text": "Pro-IRGC Telegram channel: MV Sun Glory successfully loaded 2 million barrels of Iranian crude at Kharg Island terminal and departed for Qingdao, China."
+        },
+        {
+          "id": "mehr-news-2024-03-05",
+          "type": "state_media",
+          "reliability_prior": 0.3,
+          "text": "Mehr News: Iran's oil exports to China continue robust shipment from Kharg terminal despite Western sanctions."
+        },
+        {
+          "id": "tasnim-2024-03-06",
+          "type": "state_media",
+          "reliability_prior": 0.3,
+          "text": "Tasnim News Agency: Despite sanctions, Iranian energy exports to East Asian customers proceed normally."
+        }
+      ],
+      "gold": {
+        "verdict": "UNVERIFIED",
+        "supporting_source_ids": [],
+        "must_cite_caveat_about": "All three sources are Iranian state-media or pro-IRGC channels; no independent maritime intelligence (TankerTrackers, S&P Global, Lloyd's List, AIS data, satellite imagery) is provided. Specific vessel-level claims about cargo size, dates, and destination must be independently corroborated before treating them as verified."
+      }
+    }
+  ]
+}

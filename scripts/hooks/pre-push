@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+# Pre-push security audit. Blocks the push if any check fails.
+#
+# Install (or re-install after a clone):
+#   cp scripts/hooks/pre-push .git/hooks/pre-push && chmod +x .git/hooks/pre-push
+#
+# Checks:
+#   1. No leak patterns in any tracked file (Prime API key, hardcoded /Users/, Prime user ID, SSH private keys)
+#   2. Git author identity matches expected (bitdrongo / GitHub noreply email)
+#   3. CLAUDE.md and .claude/ are NOT tracked (operational config must stay local)
+#   4. No tracked file path is absolute or escapes the worktree
+
+set -uo pipefail
+
+EXPECTED_EMAIL="37370081+bitdrongo@users.noreply.github.com"
+EXPECTED_NAME="bitdrongo"
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT" || exit 1
+
+errors=()
+
+# 1. Leak patterns
+# pit_<key body>: real Prime API keys are pit_<long alphanum>. Flag pit_ followed by 8+ alphanum chars.
+# /Users/  : hardcoded macOS user paths
+# cmodui8bf: Prime user-id prefix
+# -----BEGIN ... PRIVATE KEY----- : SSH/PGP private keys
+patterns=(
+    'pit_[A-Za-z0-9_-]{8,}'
+    '/Users/[a-zA-Z0-9_-]+'
+    'cmodui8bf'
+    '-----BEGIN [A-Z ]*PRIVATE KEY-----'
+)
+
+# Run grep against tracked files only (NEVER against .git/ or untracked things)
+tracked=$(git ls-files)
+if [ -n "$tracked" ]; then
+    for pat in "${patterns[@]}"; do
+        # -I = ignore binary; -n = line numbers; -E = extended regex
+        # Exclude this hook file itself and the gitignore (which can legitimately mention these patterns)
+        hits=$(echo "$tracked" \
+            | grep -vE '^(scripts/hooks/pre-push|\.gitignore)$' \
+            | xargs -I{} grep -InE "$pat" "{}" 2>/dev/null)
+        if [ -n "$hits" ]; then
+            errors+=("LEAK pattern /$pat/ found in tracked files:")
+            errors+=("$hits")
+        fi
+    done
+fi
+
+# 2. Identity
+actual_email=$(git config --get user.email || echo "")
+actual_name=$(git config --get user.name || echo "")
+if [ "$actual_email" != "$EXPECTED_EMAIL" ]; then
+    errors+=("IDENTITY: git config user.email = '$actual_email', expected '$EXPECTED_EMAIL'")
+fi
+if [ "$actual_name" != "$EXPECTED_NAME" ]; then
+    errors+=("IDENTITY: git config user.name = '$actual_name', expected '$EXPECTED_NAME'")
+fi
+
+# 3. Operational files must NOT be tracked
+operational=("CLAUDE.md" ".claude/settings.json" ".claude/settings.local.json")
+for f in "${operational[@]}"; do
+    if git ls-files --error-unmatch "$f" >/dev/null 2>&1; then
+        errors+=("OPERATIONAL file is tracked but should be gitignored: $f")
+    fi
+done
+
+# 4. Scope: no absolute paths or worktree escapes in tracked file list
+while IFS= read -r f; do
+    case "$f" in
+        /*|*..*) errors+=("SCOPE: tracked path looks absolute or escapes worktree: $f") ;;
+    esac
+done <<< "$tracked"
+
+if [ ${#errors[@]} -ne 0 ]; then
+    echo "==========================================="
+    echo "  pre-push BLOCKED by security audit"
+    echo "==========================================="
+    for e in "${errors[@]}"; do
+        echo "  - $e"
+    done
+    echo
+    echo "Fix the issues above, or bypass with --no-verify (NOT recommended)."
+    exit 1
+fi
+
+echo "pre-push security audit OK"
+exit 0
