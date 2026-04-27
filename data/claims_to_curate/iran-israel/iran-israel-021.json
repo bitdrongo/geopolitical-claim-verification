@@ -1,0 +1,35 @@
+{
+  "_target_label": "TRUE — succession confirmed (Mojtaba Khamenei as de facto Supreme Leader)",
+  "_domain_hint": "Iran / Israel / Houthi / IRGC theatre. Sources: Reuters, AP, Al Jazeera, BBC, IDF spokesperson, IRGC statements, Iranian state media (IRNA/Tasnim/Mehr/Press TV), UKMTO maritime bulletins, ISW Iran updates.",
+  "claim_id": "iran-israel-021",
+  "claim": "Mojtaba Khamenei is the current de facto Supreme Leader of Iran as of April 26, 2026.",
+  "claim_date_utc": "2026-04-26",
+  "claim_origin": "Polymarket 'Iran leadership change by..?' market context",
+  "domain": "iran-israel",
+  "test_type": "true_succession_confirmed",
+  "sources": [
+    {
+      "id": "polymarket_mojtaba_succession_context",
+      "type": "prediction_market_resolution",
+      "date": "2026-04-26",
+      "publisher": "Polymarket",
+      "text": "Following the assassination of longtime Supreme Leader Ali Khamenei in early March 2026, Iran's Assembly of Experts swiftly selected his son, Mojtaba Khamenei, as successor amid escalating regional conflict. Recent intelligence reports and New York Times accounts from the past week detail Mojtaba's severe injuries from an airstrike—including multiple leg surgeries, facial burns impairing speech, and a possible prosthetic leg—prompting questions about his capacity. Traders weigh ongoing health uncertainty and power struggles against regime resilience, with no confirmed leadership shift since March."
+    },
+    {
+      "id": "polymarket_iran_regime_context_apr26",
+      "type": "prediction_market_resolution",
+      "date": "2026-04-26",
+      "publisher": "Polymarket",
+      "text": "Despite ongoing nationwide protests sparked by economic collapse, currency devaluation, and war damages—exacerbated by internet blackouts and over 18,000 arrests—recent escalations in executions and security crackdowns by the IRGC have quelled widespread unrest, per US intelligence assessments in March affirming no imminent collapse risk. Shaky ceasefires and defiance signals from the new leadership underscore institutional continuity, with major upheaval unlikely barring unforeseen health crises."
+    }
+  ],
+  "gold": {
+    "verdict": "TRUE",
+    "supporting_source_ids": ["polymarket_mojtaba_succession_context", "polymarket_iran_regime_context_apr26"],
+    "rationale_summary": "Mojtaba Khamenei was selected as Supreme Leader by Iran's Assembly of Experts following his father's assassination in early March 2026. As of April 26, 2026, Polymarket market context confirms 'no confirmed leadership shift since March' and references 'defiance signals from the new leadership'. Despite injuries sustained during an airstrike (severe leg injuries, facial burns) and questions about his capacity, he remains de facto Supreme Leader. The Iran leadership change market trades on the question of his continued tenure — implicitly confirming current incumbency.",
+    "required_caveats": [
+      "Mojtaba sustained severe injuries during airstrike — leg surgeries, facial burns, possible prosthetic leg — which raise capacity questions.",
+      "His incumbency is institutional consensus, but health concerns create some uncertainty about long-term tenure."
+    ]
+  }
+}

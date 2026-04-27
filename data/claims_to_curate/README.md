@@ -1,10 +1,12 @@
 # Curation workspace
 
-Sixty pre-allocated skeletons split across three domains. Each file is a copy of `data/curation_template.json` with one extra hint field, `_target_label`, suggesting which verdict-label slot it occupies in the planned distribution. Deviations are fine — adjust the slotting if a stronger candidate fits a different label.
+Per-claim filled curated entries that get merged into `data/claims.json` via `scripts/merge_curated.py`.
 
-When a skeleton is filled in, copy its content into `data/claims.json` (under the top-level `claims` array) and run `python scripts/validate_dataset.py data/claims.json`.
+**Status (v0.1):** the `iran-israel/` subfolder holds the 22 curated claims that ship in this release. Skeletons for the unstarted domains (Russia–Ukraine war, oil/tanker OSINT) live under `data/_skeletons/{ru-ua,oil-tanker}/` — pre-allocated empty files with `_target_label` hints, ready for v0.2 expansion.
 
-## Target distribution (60 claims total)
+When a skeleton is filled in, drop it under the matching `data/claims_to_curate/<domain>/` folder and run `python scripts/merge_curated.py` to regenerate `data/claims.json`.
+
+## Original target distribution (60 claims total — v0.2 plan)
 
 | Verdict          | Count | %   |
 |------------------|-------|-----|
@@ -15,11 +17,11 @@ When a skeleton is filled in, copy its content into `data/claims.json` (under th
 
 By domain:
 
-| Domain                                | Folder              | Count | TRUE | FALSE | PARTIALLY_TRUE | UNVERIFIED |
-|---------------------------------------|---------------------|-------|------|-------|----------------|------------|
-| Russia-Ukraine war                    | `ru-ua/`            | 25    | 8    | 5     | 8              | 4          |
-| Iran / Israel / Houthi / IRGC theatre | `iran-israel/`      | 20    | 6    | 4     | 6 (incl. 2 IDF source-poisoned) | 4 (Iranian state-media) |
-| Oil / tanker / commodities OSINT      | `oil-tanker/`       | 15    | 4    | 3     | 4              | 4          |
+| Domain                                | Folder                       | Slots | Status (v0.1) |
+|---------------------------------------|------------------------------|------:|---|
+| Iran / Israel / Houthi / IRGC theatre | `claims_to_curate/iran-israel/` | 22 (originally 20, +2 added) | **filled** |
+| Russia-Ukraine war                    | `_skeletons/ru-ua/`          | 25    | empty skeletons (v0.2) |
+| Oil / tanker / commodities OSINT      | `_skeletons/oil-tanker/`     | 15    | empty skeletons (v0.2) |
 
 Adversarial source-poisoning cases (12 total, 20%) are pre-allocated:
 - `ru-ua-022..025`: RU MoD-only, gold UNVERIFIED with one-sided-sourcing caveat

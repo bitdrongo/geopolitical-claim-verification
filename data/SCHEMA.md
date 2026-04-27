@@ -34,20 +34,30 @@ Validate with: `.venv/bin/python scripts/validate_dataset.py <path>`.
 {
   "id": "string",                  // REQUIRED. Unique within this claim. Slug form, e.g. "isw-2024-02-17", "reuters-apr1".
   "type": "string",                // REQUIRED. One of:
-                                   //   "think_tank_report"      // ISW, RUSI, CSIS, Atlantic Council, Brookings...
-                                   //   "wire_service"           // Reuters, AP, AFP, Bloomberg, BBC, NYT factual reporting
-                                   //   "belligerent_official"   // any government/military spokesperson, statement, or MoD release
-                                   //   "state_media"            // RT, Sputnik, RIA, TASS, Mehr, Tasnim, IRNA, Press TV, Xinhua, etc.
-                                   //   "osint_account"          // Oryxspioenkop, TankerTrackers, individual identified analysts
-                                   //   "academic_or_legal"      // peer-reviewed paper, court filing, sanctions designation
-  "reliability_prior": 0.0,        // REQUIRED. Float in [0, 1]. Recommended priors:
-                                   //   wire_service:           0.85 - 0.95
-                                   //   think_tank_report:      0.75 - 0.90
-                                   //   osint_account:          0.50 - 0.85   (depends on track record)
-                                   //   belligerent_official:   0.30 - 0.65   (own-side claims lower)
-                                   //   state_media:            0.20 - 0.40
-                                   //   academic_or_legal:      0.85 - 0.95
-  "text": "string"                 // REQUIRED. The relevant excerpt from the source, paraphrased to ~1-3 sentences. Don't paste full articles. Make sure the excerpt actually contains the information that supports / contradicts / qualifies the claim.
+                                   //   "think_tank_report"            // ISW, RUSI, CSIS, Atlantic Council, Brookings...
+                                   //   "wire_service"                 // Reuters, AP, AFP, Bloomberg, BBC, NYT factual reporting
+                                   //   "belligerent_official"         // government / military spokesperson, statement, MoD release
+                                   //   "state_media"                  // RT, Sputnik, RIA, TASS, Mehr, Tasnim, IRNA, Press TV, Xinhua...
+                                   //   "osint_account"                // Oryxspioenkop, TankerTrackers, individual identified analysts
+                                   //   "academic_or_legal"            // peer-reviewed paper, court filing, sanctions designation
+                                   //   "head_of_state_statement"      // POTUS / PM / President speaking about own state's actions
+                                   //   "mediator_statement"           // third-party mediator (Pakistani PM, Qatari diplomats, UN envoys)
+                                   //   "prediction_market_resolution" // Polymarket / Kalshi / UMA Optimistic Oracle resolution
+  "reliability_prior": 0.0,        // OPTIONAL. Float in [0, 1]. If absent the env fills in a per-type default
+                                   //   (see DEFAULT_RELIABILITY_PRIOR in geopolitical_claim_verification.py).
+                                   // Recommended priors:
+                                   //   wire_service:                 0.85 - 0.95
+                                   //   think_tank_report:            0.75 - 0.90
+                                   //   academic_or_legal:            0.85 - 0.95
+                                   //   head_of_state_statement:      0.55 - 0.75 (high signal that action happened, biased framing)
+                                   //   mediator_statement:           0.70 - 0.85
+                                   //   prediction_market_resolution: 0.80 - 0.90
+                                   //   osint_account:                0.50 - 0.85
+                                   //   belligerent_official:         0.30 - 0.65
+                                   //   state_media:                  0.20 - 0.40
+  "text": "string",                // REQUIRED. The relevant excerpt from the source, paraphrased to ~1-3 sentences. Don't paste full articles. Make sure the excerpt actually contains the information that supports / contradicts / qualifies the claim.
+  "date": "YYYY-MM-DD",            // OPTIONAL. ISO date the source was published. Useful for time-bound rule (B).
+  "publisher": "string"            // OPTIONAL. Name + handle of the publishing entity, e.g. "Donald Trump (Truth Social)".
 }
 ```
 
@@ -57,7 +67,14 @@ Validate with: `.venv/bin/python scripts/validate_dataset.py <path>`.
 {
   "verdict": "TRUE" | "FALSE" | "PARTIALLY_TRUE" | "UNVERIFIED",  // REQUIRED.
   "supporting_source_ids": [ "string", ... ],                     // REQUIRED. Strict semantic — see rules below.
-  "must_cite_caveat_about": "string"                              // REQUIRED. Empty string for clean TRUE / FALSE. Non-empty for PARTIALLY_TRUE / UNVERIFIED — describes what nuance the model's `caveats` field MUST address.
+
+  // Caveats: provide AT LEAST ONE of these two forms.
+  "must_cite_caveat_about": "string",                             // OPTIONAL string form. Empty string is fine for clean TRUE / FALSE.
+  "required_caveats": [ "string", ... ],                          // OPTIONAL list form. Each entry is one nuance the model's `caveats` field is expected to address.
+
+  // For verdict in {PARTIALLY_TRUE, UNVERIFIED} the combined caveat content (string + list joined) MUST be non-empty.
+
+  "rationale_summary": "string"                                   // OPTIONAL. Curator note explaining why the gold verdict was chosen. Not used by the rubric — purely for human review and dataset transparency.
 }
 ```
 
@@ -84,6 +101,22 @@ To keep ground truth consistent across curators, use these rules. **Hybrid (A + 
 
 **C. Manual override for known disputed cases.** Some claims have lasting ambiguity (e.g. exact identity of a specific person killed in an airstrike, casualty counts in a specific battle). Mark these `PARTIALLY_TRUE` regardless of later confirmation, and document the disputed dimension in `must_cite_caveat_about`.
 
+## UNVERIFIED — strict definition
+
+`UNVERIFIED` is reserved for cases of insufficient evidence to assess `TRUE` or `FALSE`:
+
+- Only single-source belligerent claim with no corroboration AND no contradicting evidence.
+- Source poisoning (only one-sided propaganda framing in the evidence corpus).
+- Genuine epistemic uncertainty (event reported but unconfirmable, future-state claims, etc.).
+
+NOT `UNVERIFIED`:
+
+- If any source in the evidence corpus contradicts the claim — verdict should be `FALSE` or `PARTIALLY_TRUE` depending on the strength of contradiction.
+- If multiple non-belligerent sources exist supporting the claim — verdict `TRUE`.
+- If sources both support and contradict — usually `PARTIALLY_TRUE`.
+
+The distinction: **`UNVERIFIED` = absence of evidence**; **`FALSE` = presence of contradicting evidence**. These are categorically different epistemic states.
+
 ## Source-poisoning cases
 
 Adversarial cases must be flagged explicitly in `test_type` (e.g. `"UNVERIFIED_source_poisoned_one_side"`). The case design rules:
@@ -101,6 +134,8 @@ Adversarial cases must be flagged explicitly in `test_type` (e.g. `"UNVERIFIED_s
 - `gold.verdict` in the closed set of four labels.
 - `gold.supporting_source_ids` ⊆ `{ source.id for source in claim.sources }`.
 - For `gold.verdict == "UNVERIFIED"`: `gold.supporting_source_ids == []`.
-- For `gold.verdict in {"PARTIALLY_TRUE", "UNVERIFIED"}`: `gold.must_cite_caveat_about` is non-empty.
-- `claim_date_utc` parses as `YYYY-MM-DD`.
-- Each `source.reliability_prior` in `[0, 1]`.
+- For `gold.verdict in {"PARTIALLY_TRUE", "UNVERIFIED"}`: combined caveat content (`must_cite_caveat_about` + joined `required_caveats`) is non-empty.
+- `claim_date_utc` parses as `YYYY-MM-DD`. Same for optional `source.date` if present.
+- If `source.reliability_prior` is supplied it must be a float in `[0, 1]`. If absent, the env fills in the per-type default.
+
+The validator auto-detects whether the input file is a full dataset (`{"version", "description", "claims": [...]}`) or a single bare-claim file (top-level `claim_id` + `gold`).

@@ -30,7 +30,11 @@ SYSTEM_PROMPT = """You are an analyst evaluating factual claims about geopolitic
 
 You will be given:
 - A specific factual claim with date and origin context.
-- A list of sources, each with `id`, `type` (think_tank_report, wire_service, belligerent_official, osint_account, state_media), and `reliability_prior` between 0 and 1.
+- A list of sources, each with `id`, `type`, and `reliability_prior` between 0 and 1. Source types include:
+    think_tank_report, wire_service, belligerent_official, osint_account, state_media,
+    head_of_state_statement (a head of state speaking about own state's actions — high signal that the action was taken, but framing biased toward own narrative),
+    mediator_statement (an official statement from a third-party mediator — usually high credibility for confirming agreements and de-escalation),
+    prediction_market_resolution (the outcome of a regulated prediction market like Polymarket / Kalshi / UMA Optimistic Oracle — reflects aggregated public information at resolution time).
 
 Classify the claim into exactly one of:
 - TRUE          - well-supported by reliable, independent sources.
@@ -97,16 +101,66 @@ def safe_load_json(text: str) -> dict | None:
         return None
 
 
+DEFAULT_RELIABILITY_PRIOR = {
+    "wire_service": 0.90,
+    "think_tank_report": 0.85,
+    "academic_or_legal": 0.90,
+    "head_of_state_statement": 0.65,
+    "mediator_statement": 0.80,
+    "prediction_market_resolution": 0.85,
+    "prediction_market_rules": 0.95,
+    "osint_account": 0.65,
+    "belligerent_official": 0.50,
+    "state_media": 0.30,
+    "belligerent_state_media": 0.20,
+    "anonymous_social_media": 0.15,
+    "absence_of_evidence": 0.60,
+}
+
+
+def _resolved_prior(s: dict) -> float:
+    rp = s.get("reliability_prior")
+    if isinstance(rp, (int, float)):
+        return float(rp)
+    return DEFAULT_RELIABILITY_PRIOR.get(s.get("type", ""), 0.5)
+
+
 def _format_sources(sources: list[dict]) -> str:
     out = []
     for s in sources:
-        out.append(
-            f"- id: `{s['id']}`\n"
-            f"  type: {s['type']}\n"
-            f"  reliability_prior: {s['reliability_prior']}\n"
-            f"  text: {s['text']}"
-        )
+        meta_lines = [
+            f"  type: {s['type']}",
+            f"  reliability_prior: {_resolved_prior(s)}",
+        ]
+        if s.get("date"):
+            meta_lines.append(f"  date: {s['date']}")
+        if s.get("publisher"):
+            meta_lines.append(f"  publisher: {s['publisher']}")
+        meta_lines.append(f"  text: {s['text']}")
+        out.append(f"- id: `{s['id']}`\n" + "\n".join(meta_lines))
     return "\n\n".join(out)
+
+
+def _normalize_caveat(gold: dict) -> str:
+    """Accept either `must_cite_caveat_about: str` or `required_caveats: list[str]`."""
+    parts: list[str] = []
+    s = gold.get("must_cite_caveat_about")
+    if isinstance(s, str) and s.strip():
+        parts.append(s.strip())
+    lst = gold.get("required_caveats")
+    if isinstance(lst, list):
+        parts.extend(x.strip() for x in lst if isinstance(x, str) and x.strip())
+    return " ".join(parts)
+
+
+def _enriched_sources(sources: list[dict]) -> list[dict]:
+    """Mirror sources into info with reliability_prior filled in from defaults if missing."""
+    out = []
+    for s in sources:
+        d = dict(s)
+        d["reliability_prior"] = _resolved_prior(s)
+        out.append(d)
+    return out
 
 
 def format_prompt(row: dict) -> str:
@@ -203,6 +257,11 @@ class GeoClaimRubric(vf.Rubric):
             + json.dumps((answer or {}).get("supporting_source_ids", []))
             + "\n\n"
             f"For verdict {gold_verdict}, supporting_source_ids must contain {rule}\n\n"
+            "IMPORTANT distinction:\n"
+            "For event-announcement claims (ceasefires, agreements, statements, declarations, resolutions), "
+            "direct confirmation by a participating party constitutes primary supporting evidence, not secondary "
+            "corroboration. Weight differently from claims about observed events (strikes, casualties, troop "
+            "movements, capabilities) where belligerent self-reports require independent third-party verification.\n\n"
             "Score 0.0-1.0 how correctly the model selected supporting_source_ids and weighted source reliability:\n"
             "- 1.0 = list contains ONLY sources matching the strict semantics for this verdict; relied on the most reliable independent sources.\n"
             "- 0.5 = mostly correct semantics, minor mis-weighting (e.g. cited a low-reliability source alongside good ones).\n"
@@ -218,10 +277,11 @@ class GeoClaimRubric(vf.Rubric):
         if gold_verdict not in ("PARTIALLY_TRUE", "UNVERIFIED"):
             caveats = (m.get("caveats") or "").strip()
             return 1.0 if len(caveats) <= 400 else 0.7
+        required = (info or {}).get("required_caveat_text", "") or _normalize_caveat(gold)
         instruction = (
             f"Claim: {(info or {}).get('claim', '')}\n\n"
             f"Gold verdict: {gold_verdict}\n"
-            f"Required caveat topic: {gold.get('must_cite_caveat_about', '')}\n"
+            f"Required caveat topic: {required}\n"
             f"Model caveats: {m.get('caveats', '')}\n\n"
             "Score 0.0-1.0 how well the model's caveat reflects the required nuance.\n"
             "- 1.0 = caveat clearly addresses the required topic.\n"
@@ -257,6 +317,7 @@ def load_environment(
 
     rows = []
     for c in raw["claims"]:
+        enriched = _enriched_sources(c["sources"])
         rows.append(
             {
                 "prompt": [{"role": "user", "content": format_prompt(c)}],
@@ -264,9 +325,11 @@ def load_environment(
                 "info": {
                     "claim_id": c["claim_id"],
                     "claim": c["claim"],
-                    "sources": c["sources"],
+                    "sources": enriched,
                     "all_source_ids": [s["id"] for s in c["sources"]],
                     "test_type": c.get("test_type", ""),
+                    "domain": c.get("domain", ""),
+                    "required_caveat_text": _normalize_caveat(c["gold"]),
                 },
                 "task": "geopolitical-claim-verification",
             }

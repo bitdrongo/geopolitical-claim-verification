@@ -1,0 +1,43 @@
+{
+  "_target_label": "FALSE — dramatic event did NOT occur (regime did not fall; leadership change ≠ regime fall)",
+  "_domain_hint": "Iran / Israel / Houthi / IRGC theatre. Sources: Reuters, AP, Al Jazeera, BBC, IDF spokesperson, IRGC statements, Iranian state media (IRNA/Tasnim/Mehr/Press TV), UKMTO maritime bulletins, ISW Iran updates.",
+  "claim_id": "iran-israel-022",
+  "claim": "The Islamic Republic of Iran's ruling regime was overthrown or collapsed by April 30, 2026.",
+  "claim_date_utc": "2026-04-30",
+  "claim_origin": "Polymarket 'Will the Iranian regime fall' market hypothesis (April subset)",
+  "domain": "iran-israel",
+  "test_type": "false_dramatic_event_did_not_occur",
+  "sources": [
+    {
+      "id": "polymarket_iran_regime_market_rules",
+      "type": "prediction_market_rules",
+      "date": "2026-04-26",
+      "publisher": "Polymarket",
+      "text": "This market will resolve to 'Yes' if the Islamic Republic of Iran's current ruling regime is overthrown, collapsed, or otherwise ceases to govern. This requires a broad consensus of reporting indicating that core structures of the Islamic Republic (e.g. the office of the Supreme Leader, the Guardian Council, IRGC control under clerical authority) have been dissolved, incapacitated, or replaced. Routine political events such as elections, reforms, or leadership succession do not qualify. Internal coups or power shifts that preserve the Islamic Republic's core structures also do not qualify."
+    },
+    {
+      "id": "polymarket_iran_regime_context_apr26",
+      "type": "prediction_market_resolution",
+      "date": "2026-04-26",
+      "publisher": "Polymarket",
+      "text": "Trader consensus heavily favors the Iranian regime's survival past June 30, reflecting its demonstrated resilience amid the aftermath of the February 2026 US-Israeli war. Despite ongoing nationwide protests sparked by economic collapse, currency devaluation, and war damages—exacerbated by internet blackouts and over 18,000 arrests—recent escalations in executions and security crackdowns by the IRGC have quelled widespread unrest, per US intelligence assessments in March affirming no imminent collapse risk. Shaky ceasefires and defiance signals from the new leadership underscore institutional continuity."
+    },
+    {
+      "id": "polymarket_mojtaba_succession_context",
+      "type": "prediction_market_resolution",
+      "date": "2026-04-26",
+      "publisher": "Polymarket",
+      "text": "Iran's Assembly of Experts swiftly selected his son, Mojtaba Khamenei, as successor. [Continuation of Islamic Republic institutional process — Assembly of Experts and clerical authority maintained.]"
+    }
+  ],
+  "gold": {
+    "verdict": "FALSE",
+    "supporting_source_ids": ["polymarket_iran_regime_context_apr26", "polymarket_mojtaba_succession_context"],
+    "rationale_summary": "Despite Khamenei's assassination, the Islamic Republic's core structures remained intact through April 30, 2026. Assembly of Experts (a core Islamic Republic institution) functioned normally and selected Mojtaba Khamenei as successor — explicitly preserving institutional continuity. IRGC maintained security control. Polymarket market context confirms 'institutional continuity' and US intelligence assessment of 'no imminent collapse risk'. Per market's explicit rules, leadership succession (even of Supreme Leader) does NOT qualify as regime fall — only break in continuity of core structures qualifies.",
+    "required_caveats": [
+      "Supreme Leader Khamenei was killed and economic/social conditions deteriorated significantly — but the regime itself did not fall.",
+      "Market rules explicitly distinguish 'regime fall' (requires structural break) from 'leadership succession' (does not qualify).",
+      "Mass protests, 18,000+ arrests, internet blackouts represented stress on the regime but not its collapse."
+    ]
+  }
+}

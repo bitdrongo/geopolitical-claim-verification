@@ -1,0 +1,943 @@
+{
+  "version": "0.2.0",
+  "description": "Curated geopolitical claims dataset assembled from data/claims_to_curate/.",
+  "claims": [
+    {
+      "claim_id": "iran-israel-001",
+      "claim": "The United States and Iran reached an official ceasefire agreement halting direct military engagement on April 8, 2026.",
+      "claim_date_utc": "2026-04-08",
+      "claim_origin": "Polymarket prediction market resolution / multiple government statements",
+      "domain": "iran-israel",
+      "test_type": "clean_true_via_mediator",
+      "sources": [
+        {
+          "id": "trump_truthsocial_2026_04_08",
+          "type": "head_of_state_statement",
+          "date": "2026-04-08",
+          "publisher": "Donald Trump (Truth Social, @realDonaldTrump)",
+          "text": "Based on conversations with Prime Minister Shehbaz Sharif and Field Marshal Asim Munir, of Pakistan, and wherein they requested that I hold off the destructive force being sent tonight to Iran, and subject to the Islamic Republic of Iran agreeing to the COMPLETE, IMMEDIATE, and SAFE OPENING of the Strait of Hormuz, I agree to suspend the bombing and attack of Iran for a period of two weeks. This will be a double sided CEASEFIRE! The reason for doing so is that we have already met and exceeded all Military objectives, and are very far along with a definitive Agreement concerning Longterm PEACE with Iran, and PEACE in the Middle East. We received a 10 point proposal from Iran, and believe it is a workable basis on which to negotiate."
+        },
+        {
+          "id": "araghchi_snsc_2026_04_08",
+          "type": "belligerent_official",
+          "date": "2026-04-08",
+          "publisher": "Seyed Abbas Araghchi (Iranian Foreign Minister, on behalf of the Supreme National Security Council of the Islamic Republic of Iran)",
+          "text": "Statement on behalf of the Supreme National Security Council of the Islamic Republic of Iran. TEHRAN-7 APRIL 2026. In response to the brotherly request of PM Sharif in his tweet, and considering the request by the U.S. for negotiations based on its 15-point proposal as well as announcement by POTUS about acceptance of the general framework of Iran's 10-point proposal as a basis for negotiations, I hereby declare on behalf of Iran's Supreme National Security Council: If attacks against Iran are halted, our Powerful Armed Forces will cease their defensive operations. For a period of two weeks, safe passage through the Strait of Hormuz will be possible via coordination with Iran's Armed Forces and with due consideration of technical limitations."
+        },
+        {
+          "id": "sharif_mediator_announcement_2026_04_08",
+          "type": "mediator_statement",
+          "date": "2026-04-08",
+          "publisher": "Shehbaz Sharif (Prime Minister of Pakistan, @CMShehbaz)",
+          "text": "With the greatest humility, I am pleased to announce that the Islamic Republic of Iran and the United States of America, along with their allies, have agreed to an immediate ceasefire everywhere including Lebanon and elsewhere, EFFECTIVE IMMEDIATELY. I warmly welcome the sagacious gesture and extend deepest gratitude to the leadership of both the countries and invite their delegations to Islamabad on Friday, 10th April 2026, to further negotiate for a conclusive agreement to settle all disputes."
+        },
+        {
+          "id": "polymarket_resolution_apr7",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-08",
+          "publisher": "Polymarket / UMA Optimistic Oracle",
+          "text": "Polymarket market 'US x Iran ceasefire by April 7' resolved YES with $173,696,184 in trading volume. Subsequent ladder markets (April 10, April 15, April 30, May 15, June 30, December 31) all resolved YES based on the same April 8 ceasefire announcement."
+        }
+      ],
+      "gold": {
+        "verdict": "TRUE",
+        "supporting_source_ids": [
+          "trump_truthsocial_2026_04_08",
+          "araghchi_snsc_2026_04_08",
+          "sharif_mediator_announcement_2026_04_08",
+          "polymarket_resolution_apr7"
+        ],
+        "rationale_summary": "Both belligerent parties (Trump representing US, Araghchi on behalf of Iranian Supreme National Security Council) publicly confirmed cessation of direct military engagement on April 8, 2026, within a 4-hour window. Pakistani PM Sharif acted as mediator and publicly announced the bilateral ceasefire as 'effective immediately'. The agreement met the standard for 'official ceasefire' through mediated mutual confirmation, achieving overwhelming consensus of credible reporting and Polymarket's resolution criteria.",
+        "required_caveats": []
+      }
+    },
+    {
+      "claim_id": "iran-israel-002",
+      "claim": "The United States and Iran reached an official ceasefire agreement halting direct military engagement by March 31, 2026 (11:59 PM ET).",
+      "claim_date_utc": "2026-03-31",
+      "claim_origin": "Polymarket 'US x Iran ceasefire by March 31' market hypothesis",
+      "domain": "iran-israel",
+      "test_type": "false_temporal_deadline",
+      "sources": [
+        {
+          "id": "polymarket_resolution_mar31",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-01",
+          "publisher": "Polymarket / UMA Optimistic Oracle",
+          "text": "Polymarket market 'US x Iran ceasefire by March 31' resolved NO with $44,375,995 in trading volume. The market required a publicly announced and mutually agreed halt in direct military engagement between the United States and the government of Iran, confirmed by both governments or by overwhelming consensus of credible media reporting, by 11:59 PM ET on March 31, 2026."
+        },
+        {
+          "id": "polymarket_earlier_no_resolutions",
+          "type": "prediction_market_resolution",
+          "date": "2026-03-15",
+          "publisher": "Polymarket",
+          "text": "Earlier deadline markets in the same ladder (March 2, March 6, March 15) all resolved NO. As of March 31 2026 23:59 ET, no public bilateral ceasefire announcement existed between the US and Iranian governments."
+        },
+        {
+          "id": "trump_truthsocial_2026_04_08",
+          "type": "head_of_state_statement",
+          "date": "2026-04-08",
+          "publisher": "Donald Trump (Truth Social)",
+          "text": "I agree to suspend the bombing and attack of Iran for a period of two weeks. This will be a double sided CEASEFIRE! [Posted April 8, 2026 — eight days after the March 31 deadline]"
+        }
+      ],
+      "gold": {
+        "verdict": "FALSE",
+        "supporting_source_ids": [
+          "polymarket_resolution_mar31",
+          "polymarket_earlier_no_resolutions"
+        ],
+        "rationale_summary": "The actual ceasefire announcement occurred on April 8, 2026, eight days after the March 31 11:59 PM ET deadline. The Polymarket March 31 market resolved NO with $44M volume. The claim is false on hard deadline grounds even though a ceasefire WAS subsequently reached — temporal precision matters in this resolution standard.",
+        "required_caveats": [
+          "A ceasefire was reached on April 8, 2026, but eight days after the March 31 deadline.",
+          "Backward-looking restatement ('by April 15 there was a ceasefire') would resolve TRUE — the claim is false specifically on the March 31 cutoff."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-003",
+      "claim": "The United States and Iran reached a definitive long-term peace agreement on April 8, 2026.",
+      "claim_date_utc": "2026-04-08",
+      "claim_origin": "Misreading of Trump Truth Social statement language",
+      "domain": "iran-israel",
+      "test_type": "false_overinterpretation",
+      "sources": [
+        {
+          "id": "trump_truthsocial_2026_04_08",
+          "type": "head_of_state_statement",
+          "date": "2026-04-08",
+          "publisher": "Donald Trump (Truth Social)",
+          "text": "We are very far along with a definitive Agreement concerning Longterm PEACE with Iran, and PEACE in the Middle East. We received a 10 point proposal from Iran, and believe it is a workable basis on which to negotiate. Almost all of the various points of past contention have been agreed to between the United States and Iran, but a two week period will allow the Agreement to be finalized and consummated. On behalf of the United States of America, as President, and also representing the Countries of the Middle East, it is an Honor to have this Longterm problem close to resolution."
+        },
+        {
+          "id": "sharif_mediator_announcement_2026_04_08",
+          "type": "mediator_statement",
+          "date": "2026-04-08",
+          "publisher": "Shehbaz Sharif (Prime Minister of Pakistan)",
+          "text": "I invite their delegations to Islamabad on Friday, 10th April 2026, to further negotiate for a conclusive agreement to settle all disputes. We earnestly hope, that the 'Islamabad Talks' succeed in achieving sustainable peace and wish to share more good news in coming days."
+        },
+        {
+          "id": "araghchi_snsc_2026_04_08",
+          "type": "belligerent_official",
+          "date": "2026-04-08",
+          "publisher": "Seyed Abbas Araghchi (Iranian Foreign Minister)",
+          "text": "If attacks against Iran are halted, our Powerful Armed Forces will cease their defensive operations. For a period of two weeks, safe passage through the Strait of Hormuz will be possible via coordination with Iran's Armed Forces."
+        }
+      ],
+      "gold": {
+        "verdict": "FALSE",
+        "supporting_source_ids": [],
+        "rationale_summary": "The April 8 announcements describe a 2-week ceasefire and a 10-point Iranian proposal as a 'workable basis on which to negotiate' — explicitly preliminary. Trump states 'a two week period will allow the Agreement to be finalized and consummated' — i.e., the agreement is NOT yet finalized. Sharif invites delegations to Islamabad April 10 to 'further negotiate for a conclusive agreement' — clearly framing this as future-looking. A ceasefire is not a peace agreement; an agreement-to-negotiate is not a definitive deal.",
+        "required_caveats": [
+          "A 2-week ceasefire was confirmed, but a definitive long-term peace agreement was NOT reached on April 8.",
+          "Trump's language ('close to resolution', 'workable basis', 'will be finalized') is aspirational and forward-looking, not declarative of a completed agreement."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-004",
+      "claim": "Iran agreed to a complete and immediate reopening of the Strait of Hormuz on April 8, 2026.",
+      "claim_date_utc": "2026-04-08",
+      "claim_origin": "Trump conditional demand reported as agreed-upon outcome",
+      "domain": "iran-israel",
+      "test_type": "partially_true_definitional_gap",
+      "sources": [
+        {
+          "id": "trump_truthsocial_2026_04_08",
+          "type": "head_of_state_statement",
+          "date": "2026-04-08",
+          "publisher": "Donald Trump (Truth Social)",
+          "text": "Subject to the Islamic Republic of Iran agreeing to the COMPLETE, IMMEDIATE, and SAFE OPENING of the Strait of Hormuz, I agree to suspend the bombing and attack of Iran for a period of two weeks."
+        },
+        {
+          "id": "araghchi_snsc_2026_04_08",
+          "type": "belligerent_official",
+          "date": "2026-04-08",
+          "publisher": "Seyed Abbas Araghchi (Iranian Foreign Minister, on behalf of Iran's Supreme National Security Council)",
+          "text": "For a period of two weeks, safe passage through the Strait of Hormuz will be possible via coordination with Iran's Armed Forces and with due consideration of technical limitations."
+        },
+        {
+          "id": "sharif_mediator_request_2026_04_08",
+          "type": "mediator_statement",
+          "date": "2026-04-08",
+          "publisher": "Shehbaz Sharif (Prime Minister of Pakistan)",
+          "text": "Pakistan, in all sincerity, requests the Iranian brothers to open Strait of Hormuz for a corresponding period of two weeks as a goodwill gesture."
+        }
+      ],
+      "gold": {
+        "verdict": "PARTIALLY_TRUE",
+        "supporting_source_ids": [
+          "araghchi_snsc_2026_04_08"
+        ],
+        "rationale_summary": "Iran agreed to facilitate Strait of Hormuz passage, but with significant qualifications that fall short of Trump's stated condition. Trump demanded 'COMPLETE, IMMEDIATE, and SAFE OPENING' — language implying unconditional, unrestricted access. Araghchi committed to 'safe passage via coordination with Iran's Armed Forces and with due consideration of technical limitations' for 2 weeks only. This is conditional, coordinated, time-limited access — substantively different from 'complete and immediate' reopening. A definitional gap exists between the two parties' framings of the same underlying agreement.",
+        "required_caveats": [
+          "Iranian commitment is explicitly conditional ('coordination', 'technical limitations') and time-limited (2 weeks).",
+          "Iran's framing preserves operational control; Trump's framing implies unrestricted Western shipping access.",
+          "Whether Iran's terms satisfy Trump's stated condition is interpretive and contested between the parties."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-005",
+      "claim": "Iran capitulated to US demands on April 8, 2026, accepting US terms unconditionally.",
+      "claim_date_utc": "2026-04-08",
+      "claim_origin": "Pro-US/pro-Israel commentary framing of the ceasefire announcement",
+      "domain": "iran-israel",
+      "test_type": "false_narrative_framing",
+      "sources": [
+        {
+          "id": "trump_truthsocial_2026_04_08",
+          "type": "head_of_state_statement",
+          "date": "2026-04-08",
+          "publisher": "Donald Trump (Truth Social)",
+          "text": "We received a 10 point proposal from Iran, and believe it is a workable basis on which to negotiate. Almost all of the various points of past contention have been agreed to between the United States and Iran, but a two week period will allow the Agreement to be finalized and consummated."
+        },
+        {
+          "id": "araghchi_snsc_2026_04_08",
+          "type": "belligerent_official",
+          "date": "2026-04-08",
+          "publisher": "Seyed Abbas Araghchi (Iranian Foreign Minister, Supreme National Security Council)",
+          "text": "If attacks against Iran are halted, our Powerful Armed Forces will cease their defensive operations. [Statement framed as conditional response to Pakistani mediation, not unilateral acceptance of US terms.]"
+        },
+        {
+          "id": "sharif_mediator_announcement_2026_04_08",
+          "type": "mediator_statement",
+          "date": "2026-04-08",
+          "publisher": "Shehbaz Sharif (Prime Minister of Pakistan)",
+          "text": "Both parties have displayed remarkable wisdom and understanding and have remained constructively engaged in furthering the cause of peace and stability."
+        }
+      ],
+      "gold": {
+        "verdict": "FALSE",
+        "supporting_source_ids": [],
+        "rationale_summary": "The agreement structure does not support a 'capitulation' narrative. Trump's own statement references 'a 10 point proposal FROM Iran' that the US accepted as 'workable basis' — Iran set terms, US received them. Araghchi's language frames Iranian action as conditional ('IF attacks against Iran are halted'), maintains language of 'Powerful Armed Forces' and 'defensive operations' — preserving Iranian autonomy framing. Sharif characterizes both parties as having shown 'wisdom and understanding' and being 'constructively engaged' — symmetrical mediator framing. This is a mediated mutual de-escalation through Pakistani channels, not unilateral capitulation.",
+        "required_caveats": [
+          "The agreement structure shows Iranian conditions accepted by the US (10-point Iranian proposal as basis), not vice versa.",
+          "Both sides used face-saving language; neither party publicly accepted defeat or surrender framing.",
+          "Mediator framing was explicitly symmetrical."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-006",
+      "claim": "US military forces (special operations) physically entered Iranian terrestrial territory by April 30, 2026.",
+      "claim_date_utc": "2026-04-05",
+      "claim_origin": "Polymarket 'US forces enter Iran by April 30' market resolution / Trump Truth Social announcement",
+      "domain": "iran-israel",
+      "test_type": "true_definitional_edge_case",
+      "sources": [
+        {
+          "id": "trump_rescue_announcement_2026_04_05",
+          "type": "head_of_state_statement",
+          "date": "2026-04-05",
+          "publisher": "Donald Trump (Truth Social, @realDonaldTrump)",
+          "text": "We have rescued the seriously wounded, and really brave, F-15 Crew Member/Officer, from deep inside the mountains of Iran. The Iranian Military was looking hard, in big numbers, and getting close. He is a highly respected Colonel. This type of raid is seldom attempted because of the danger to 'man and equipment.' It just doesn't happen! The second raid came after the first one, where we rescued the pilot in broad daylight, also unusual, spending seven hours over Iran. An AMAZING show of bravery and talent by all! I will be having a News Conference, with the Military, at the Oval Office, on Monday, at 1:00 P.M."
+        },
+        {
+          "id": "polymarket_resolution_apr30",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-05",
+          "publisher": "Polymarket / UMA Optimistic Oracle",
+          "text": "Polymarket market 'US forces enter Iran by April 30' resolved YES with $269,049,107 trading volume — largest market in the ladder. Resolution criteria required US military personnel to 'physically enter the terrestrial territory of Iran' deliberately for operational purposes. Special operation forces qualified per market rules. Pilots shot down did NOT qualify, but rescue teams deliberately deployed for operational purposes did qualify."
+        },
+        {
+          "id": "polymarket_market_rules",
+          "type": "prediction_market_rules",
+          "date": "2026-02-15",
+          "publisher": "Polymarket",
+          "text": "This market will resolve to 'Yes' if active US military personnel physically enter Iran at any point by the listed date (ET). Military special operation forces will qualify; however, intelligence operatives will not. US military personnel must physically enter the terrestrial territory of Iran to qualify. Entering Iran's maritime or aerial territory will not count. Note: Only US military personnel who deliberately enter the terrestrial territory of Iran for operational purposes (e.g., military, humanitarian, etc.) will qualify. Pilots who are shot down, or other cases in which US military personnel do not deliberately enter the terrestrial territory of Iran, will not qualify."
+        }
+      ],
+      "gold": {
+        "verdict": "TRUE",
+        "supporting_source_ids": [
+          "trump_rescue_announcement_2026_04_05",
+          "polymarket_resolution_apr30",
+          "polymarket_market_rules"
+        ],
+        "rationale_summary": "US special forces conducted two ground raids 'deep inside the mountains of Iran' on or around April 5, 2026, to rescue a downed F-15 pilot. Per Polymarket's explicit rules, special operation forces deliberately entering Iranian terrestrial territory for operational purposes qualify — and rescue operations are operational. The exclusion clause about 'pilots shot down' applied only to involuntary entry (the pilot himself), not to the rescue forces who deliberately deployed. This is a true case despite a definitional twist: rescue teams are deliberate entrants, even though their mission targeted an involuntary one.",
+        "required_caveats": []
+      }
+    },
+    {
+      "claim_id": "iran-israel-007",
+      "claim": "US military forces physically entered Iranian terrestrial territory by March 31, 2026 (11:59 PM ET).",
+      "claim_date_utc": "2026-03-31",
+      "claim_origin": "Polymarket 'US forces enter Iran by March 31' market hypothesis",
+      "domain": "iran-israel",
+      "test_type": "false_temporal_deadline",
+      "sources": [
+        {
+          "id": "polymarket_resolution_mar31_forces",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-01",
+          "publisher": "Polymarket / UMA Optimistic Oracle",
+          "text": "Polymarket market 'US forces enter Iran by March 31' resolved NO with $73,927,762 trading volume. As of March 31 2026 23:59 ET, no credible reports existed of US military personnel having physically entered Iranian terrestrial territory."
+        },
+        {
+          "id": "polymarket_earlier_no_resolutions_forces",
+          "type": "prediction_market_resolution",
+          "date": "2026-03-15",
+          "publisher": "Polymarket",
+          "text": "All earlier deadline markets in the same ladder (February 28, March 1, March 3, March 7, March 14) resolved NO. Combat operations during this period were conducted via airstrikes only; no ground entry occurred."
+        },
+        {
+          "id": "trump_rescue_announcement_2026_04_05",
+          "type": "head_of_state_statement",
+          "date": "2026-04-05",
+          "publisher": "Donald Trump (Truth Social)",
+          "text": "We have rescued the seriously wounded, and really brave, F-15 Crew Member/Officer, from deep inside the mountains of Iran. [Posted April 5, 2026 — five days after the March 31 deadline. The first US ground entry occurred between April 1-5, 2026.]"
+        }
+      ],
+      "gold": {
+        "verdict": "FALSE",
+        "supporting_source_ids": [
+          "polymarket_resolution_mar31_forces",
+          "polymarket_earlier_no_resolutions_forces"
+        ],
+        "rationale_summary": "The actual US ground entry (F-15 pilot rescue raids) occurred on or around April 5, 2026, approximately 5 days after the March 31 deadline. The Polymarket March 31 market resolved NO with $74M volume. The claim is false on hard deadline grounds — temporal precision matters. Subsequently the April 30 market resolved YES, but specifically because the event occurred between April 1-5.",
+        "required_caveats": [
+          "US ground entry did occur subsequently (April 5, 2026 rescue raids), but after the March 31 deadline.",
+          "Combat operations prior to March 31 were exclusively airstrikes, no ground entry."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-008",
+      "claim": "US military forces conducted ground operations inside Iranian territory in mid-March 2026.",
+      "claim_date_utc": "2026-03-18",
+      "claim_origin": "Iranian state media / IRGC-linked Telegram channels (hypothetical adversarial framing)",
+      "domain": "iran-israel",
+      "test_type": "unverified_source_poisoning",
+      "sources": [
+        {
+          "id": "presstv_unverified_claim_mar18",
+          "type": "belligerent_state_media",
+          "date": "2026-03-18",
+          "publisher": "PressTV (Iranian state media)",
+          "text": "Iranian sources report American mercenaries and special forces operating in border regions of Sistan and Baluchestan provinces, conducting reconnaissance missions ahead of expected larger incursions. Local witnesses cited by IRGC-affiliated Telegram channels describe night-time helicopter activity. The Pentagon has not commented on these reports."
+        },
+        {
+          "id": "irgc_telegram_aggregator",
+          "type": "anonymous_social_media",
+          "date": "2026-03-18",
+          "publisher": "Pro-IRGC Telegram aggregator",
+          "text": "Multiple eyewitness accounts from villages near Zahedan describe foreign military presence. Translation of unverified video clips suggests English-speaking personnel. No independent verification available."
+        }
+      ],
+      "gold": {
+        "verdict": "UNVERIFIED",
+        "supporting_source_ids": [],
+        "rationale_summary": "The claim comes exclusively from Iranian state media (PressTV) and pro-IRGC anonymous social media aggregators — both belligerent-aligned sources with documented history of inflated claims. No wire service (Reuters, AP, AFP), no Western government confirmation, no satellite imagery analysis, no neutral OSINT corroboration. Single-side belligerent sourcing from a state actor with strong propaganda incentives is insufficient for a TRUE/FALSE verdict. Requires independent verification before claim can be assessed.",
+        "required_caveats": [
+          "Source ecosystem is exclusively Iranian state and IRGC-aligned media — high propaganda incentive.",
+          "PressTV and IRGC Telegram aggregators have documented track record of inflated or fabricated claims during conflicts.",
+          "No independent verification (Reuters, AP, satellite imagery, OSINT analysts like Oryx) available.",
+          "The Pentagon's lack of comment is not equivalent to confirmation; in adversarial framing this is sometimes presented as 'tacit admission' which is a known propaganda technique."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-009",
+      "claim": "The downed F-15 pilot's involuntary presence in Iranian territory satisfies the Polymarket 'US forces enter Iran' resolution criteria.",
+      "claim_date_utc": "2026-04-05",
+      "claim_origin": "Misreading of Polymarket resolution criteria",
+      "domain": "iran-israel",
+      "test_type": "false_definitional_exclusion",
+      "sources": [
+        {
+          "id": "polymarket_market_rules",
+          "type": "prediction_market_rules",
+          "date": "2026-02-15",
+          "publisher": "Polymarket",
+          "text": "Note: Only US military personnel who deliberately enter the terrestrial territory of Iran for operational purposes (e.g., military, humanitarian, etc.) will qualify. Pilots who are shot down, or other cases in which US military personnel do not deliberately enter the terrestrial territory of Iran, will not qualify."
+        },
+        {
+          "id": "trump_rescue_announcement_2026_04_05",
+          "type": "head_of_state_statement",
+          "date": "2026-04-05",
+          "publisher": "Donald Trump (Truth Social)",
+          "text": "We have rescued the seriously wounded, and really brave, F-15 Crew Member/Officer, from deep inside the mountains of Iran. The Iranian Military was looking hard, in big numbers, and getting close."
+        }
+      ],
+      "gold": {
+        "verdict": "FALSE",
+        "supporting_source_ids": [],
+        "rationale_summary": "The Polymarket resolution rules explicitly exclude 'pilots who are shot down' from qualifying entries. The downed F-15 pilot's presence in Iran was involuntary (his aircraft was disabled), not 'deliberate entry for operational purposes'. Therefore his presence alone does NOT satisfy resolution criteria. The market resolved YES because of the rescue forces — different US personnel who deliberately deployed for operational purposes. The pilot himself is the canonical excluded case in the rules.",
+        "required_caveats": [
+          "The market did resolve YES, but on the basis of the rescue special forces, not the downed pilot himself.",
+          "This is a definitional precision test — the rules explicitly carve out involuntary entry."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-010",
+      "claim": "The April 8, 2026 US-Iran ceasefire was officially extended by mutual agreement before April 22, 2026 (11:59 PM ET).",
+      "claim_date_utc": "2026-04-22",
+      "claim_origin": "Polymarket 'US x Iran ceasefire extended by April 22' market hypothesis",
+      "domain": "iran-israel",
+      "test_type": "false_unilateral_vs_mutual_distinction",
+      "sources": [
+        {
+          "id": "trump_extension_statement_2026_04_21",
+          "type": "head_of_state_statement",
+          "date": "2026-04-21",
+          "publisher": "Donald Trump (Truth Social, @realDonaldTrump)",
+          "text": "Based on the fact that the Government of Iran is seriously fractured, not unexpectedly so and, upon the request of Field Marshal Asim Munir, and Prime Minister Shehbaz Sharif, of Pakistan, we have been asked to hold our Attack on the Country of Iran until such time as their leaders and representatives can come up with a unified proposal. I have therefore directed our Military to continue the Blockade and, in all other respects, remain ready and able, and will therefore extend the Ceasefire until such time as their proposal is submitted, and discussions are concluded, one way or the other."
+        },
+        {
+          "id": "polymarket_extension_market_rules",
+          "type": "prediction_market_rules",
+          "date": "2026-04-20",
+          "publisher": "Polymarket",
+          "text": "An extension of the ceasefire agreement requires clear public confirmation from both the United States government and the government of Iran that they have agreed to halt military hostilities against one another for longer than the initially agreed two-week period, or for an official extension of the ceasefire agreement in place to be otherwise confirmed by an overwhelming consensus of media reporting. Any form of informal understanding, backchannel communication, de-escalation, or unilateral pause in hostilities without a confirmed agreement on a qualifying extension will not qualify."
+        },
+        {
+          "id": "polymarket_resolution_apr22_extension",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-23",
+          "publisher": "Polymarket / UMA Optimistic Oracle",
+          "text": "Polymarket clarification on April 22 23:59 ET status: 'As of April 22, 2026, 11:59 PM ET, there was neither clear public confirmation from Iran of an official extension of the ceasefire, nor an overwhelming consensus of credible reporting that a qualifying ceasefire extension agreement had been reached.' Outcome proposed NO, disputed, but trading at 0.1¢ for YES (effectively settled NO). Total volume across ladder: $74M."
+        },
+        {
+          "id": "no_iranian_extension_confirmation",
+          "type": "absence_of_evidence",
+          "date": "2026-04-22",
+          "publisher": "Negative finding (no Iranian state confirmation by April 22 deadline)",
+          "text": "Despite Trump's April 21 unilateral extension announcement, no public statement from Iranian Foreign Ministry, Supreme National Security Council, Araghchi, or any other Iranian government body publicly confirmed agreement to extend the April 7 ceasefire by the April 22 deadline. Iranian government described as 'fractured' in Trump's own statement, with no unified proposal submitted."
+        }
+      ],
+      "gold": {
+        "verdict": "FALSE",
+        "supporting_source_ids": [
+          "polymarket_extension_market_rules",
+          "polymarket_resolution_apr22_extension",
+          "no_iranian_extension_confirmation"
+        ],
+        "rationale_summary": "Trump's April 21 statement was a unilateral US announcement to maintain ceasefire while awaiting Iranian proposal — not a mutually-confirmed bilateral extension. Trump's own framing acknowledges that Iran is 'seriously fractured' and lacks 'unified proposal', explicitly noting the request came from Pakistani mediators rather than Iran itself. No public Iranian government confirmation of extension existed by April 22 23:59 ET deadline. Polymarket rules explicitly exclude 'unilateral pause in hostilities without a confirmed agreement' — this case fits that exclusion exactly. Compare with April 8 original ceasefire (TRUE) where Araghchi statement provided Iranian SNSC confirmation within hours of Trump's announcement.",
+        "required_caveats": [
+          "Unilateral US extension WAS announced — but unilateral pauses do not satisfy mutual-agreement standard.",
+          "Trump's statement itself acknowledges Iranian government is fractured and no unified Iranian proposal exists.",
+          "This case directly contrasts with April 8 ceasefire (where Iranian SNSC publicly confirmed within hours), demonstrating the bilateral-confirmation requirement.",
+          "Mediator request (Pakistan) ≠ Iranian government confirmation."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-011",
+      "claim": "President Trump extended the US-Iran ceasefire on April 21, 2026.",
+      "claim_date_utc": "2026-04-21",
+      "claim_origin": "Pro-administration media framing",
+      "domain": "iran-israel",
+      "test_type": "partially_true_unilateral_action_framing",
+      "sources": [
+        {
+          "id": "trump_extension_statement_2026_04_21",
+          "type": "head_of_state_statement",
+          "date": "2026-04-21",
+          "publisher": "Donald Trump (Truth Social)",
+          "text": "I have therefore directed our Military to continue the Blockade and, in all other respects, remain ready and able, and will therefore extend the Ceasefire until such time as their proposal is submitted, and discussions are concluded, one way or the other."
+        },
+        {
+          "id": "iranian_position_ceasefire_violations",
+          "type": "belligerent_official",
+          "date": "2026-04-22",
+          "publisher": "Iranian government / Foreign Ministry (general position)",
+          "text": "Iran has accused the US of ongoing ceasefire violations through the maintained naval blockade of Iranian ports in the Strait of Hormuz, and through ship seizures. Iranian phased framework prioritizes further ceasefire extension, then Hormuz access, then nuclear discussions later — explicitly framing the US as ceasefire violator, not extender."
+        }
+      ],
+      "gold": {
+        "verdict": "PARTIALLY_TRUE",
+        "supporting_source_ids": [
+          "trump_extension_statement_2026_04_21"
+        ],
+        "rationale_summary": "Trump did publicly announce extension of US military pause toward Iran on April 21 — that part is factually accurate. However, framing this as 'Trump extended the ceasefire' obscures critical asymmetry: (1) ceasefires are bilateral by definition, requiring mutual commitment, (2) US maintained naval blockade of Iranian ports throughout, which Iran characterizes as ongoing ceasefire violation, (3) Iran did not publicly confirm the extension, (4) Trump's own statement frames it as US-side decision pending Iranian proposal. The action is real (US continues to hold attack) but characterizing it as 'extended ceasefire' overreads what was a unilateral US policy decision.",
+        "required_caveats": [
+          "The action announced was unilateral US policy, not a mutually-agreed ceasefire extension.",
+          "US naval blockade of Iranian ports continued throughout, characterized by Iran as ceasefire violation.",
+          "Iranian government did not publicly confirm any extension by the April 22 deadline."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-012",
+      "claim": "The Iranian government was seriously fractured and unable to produce a unified proposal as of April 21, 2026.",
+      "claim_date_utc": "2026-04-21",
+      "claim_origin": "Trump Truth Social statement framing",
+      "domain": "iran-israel",
+      "test_type": "false_contradicted_by_counterparty_behavior",
+      "sources": [
+        {
+          "id": "trump_extension_statement_2026_04_21",
+          "type": "head_of_state_statement",
+          "date": "2026-04-21",
+          "publisher": "Donald Trump (Truth Social)",
+          "text": "Based on the fact that the Government of Iran is seriously fractured, not unexpectedly so and, upon the request of Field Marshal Asim Munir, and Prime Minister Shehbaz Sharif, of Pakistan, we have been asked to hold our Attack on the Country of Iran until such time as their leaders and representatives can come up with a unified proposal."
+        },
+        {
+          "id": "iranian_phased_framework_response",
+          "type": "belligerent_official",
+          "date": "2026-04-22",
+          "publisher": "Iranian government (general position via diplomatic channels)",
+          "text": "Iran proposed a phased framework prioritizing further ceasefire extension, then Hormuz access, and nuclear discussions later — a structured proposal which contradicts the framing of an Iranian government 'unable to produce a unified proposal'."
+        }
+      ],
+      "gold": {
+        "verdict": "FALSE",
+        "supporting_source_ids": [
+          "iranian_phased_framework_response"
+        ],
+        "rationale_summary": "The 'seriously fractured government' framing comes from Trump's belligerent characterization of his counterparty. Iranian phased framework (proposing structured agenda: extension → Hormuz access → nuclear discussions) is a unified, coherent proposal — directly contradicting the 'unable to produce unified proposal' claim. The phased framework is positive contradicting evidence, not absent evidence. Therefore claim is FALSE: contradicted by Iran's own documented diplomatic behavior in the same period. UNVERIFIED would apply only if no Iranian counter-behavior was documented; here we have explicit counterparty action contradicting the framing.",
+        "required_caveats": [
+          "Some genuine internal Iranian political tensions exist as a baseline — but the specific claim 'unable to produce unified proposal' is contradicted by Iranian phased framework existence.",
+          "Trump's framing is a known propaganda technique (characterizing counterparty as dysfunctional to justify unilateral action), but the falseness of the framing is established by Iran's own contradicting behavior, not just by suspicion of motive.",
+          "Pattern: when belligerent claim about counterparty is contradicted by counterparty's documented behavior, verdict is FALSE rather than UNVERIFIED."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-013",
+      "claim": "The US naval blockade of Iranian ports during April 2026 violated the April 8 ceasefire agreement.",
+      "claim_date_utc": "2026-04-22",
+      "claim_origin": "Iranian government accusation",
+      "domain": "iran-israel",
+      "test_type": "partially_true_definitional_dispute",
+      "sources": [
+        {
+          "id": "iranian_violation_accusation",
+          "type": "belligerent_official",
+          "date": "2026-04-22",
+          "publisher": "Iranian government (Foreign Ministry channels)",
+          "text": "Iran accuses the US of ongoing ceasefire violations through the maintained naval blockade of Iranian ports in the Strait of Hormuz, and through ship seizures."
+        },
+        {
+          "id": "trump_extension_statement_2026_04_21",
+          "type": "head_of_state_statement",
+          "date": "2026-04-21",
+          "publisher": "Donald Trump (Truth Social)",
+          "text": "I have therefore directed our Military to continue the Blockade and, in all other respects, remain ready and able. [Trump explicitly maintains the blockade is consistent with continued ceasefire framing.]"
+        },
+        {
+          "id": "trump_original_ceasefire_2026_04_08",
+          "type": "head_of_state_statement",
+          "date": "2026-04-08",
+          "publisher": "Donald Trump (Truth Social)",
+          "text": "I agree to suspend the bombing and attack of Iran for a period of two weeks. This will be a double sided CEASEFIRE! [Original ceasefire defined narrowly as 'bombing and attack', not all military operations.]"
+        },
+        {
+          "id": "araghchi_original_ceasefire_2026_04_08",
+          "type": "belligerent_official",
+          "date": "2026-04-08",
+          "publisher": "Seyed Abbas Araghchi (Iranian Foreign Minister)",
+          "text": "If attacks against Iran are halted, our Powerful Armed Forces will cease their defensive operations. [Iranian framing: 'attacks halted' as condition.]"
+        }
+      ],
+      "gold": {
+        "verdict": "PARTIALLY_TRUE",
+        "supporting_source_ids": [
+          "iranian_violation_accusation"
+        ],
+        "rationale_summary": "The factual basis is real: US maintained naval blockade and ship seizures of Iranian ports continued through April 2026. Whether this constitutes 'violation of ceasefire' depends on definitional reading. Trump's original ceasefire announcement narrowly specified 'suspend the bombing and attack' — language about kinetic action, not naval operations. US position implicitly defines blockade as not 'attack' and therefore not violation. Iranian position defines naval blockade and ship seizures as 'attacks' falling under ceasefire scope. Both readings are defensible from the ambiguous original April 8 language, which did not specify scope of operations halted. This is a genuine definitional dispute, not a clear violation or clear compliance.",
+        "required_caveats": [
+          "The factual claim (blockade exists and continued) is true.",
+          "The legal/definitional claim (this constitutes violation) depends on how April 8 ceasefire scope is read.",
+          "Original April 8 language was ambiguous — narrow ('bombing and attack') vs broad ('all hostilities') readings both defensible.",
+          "Both parties' positions are internally consistent given different definitional frames."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-014",
+      "claim": "US military strikes hit Iran's Kharg Island in March 2026.",
+      "claim_date_utc": "2026-03-14",
+      "claim_origin": "Donald Trump Truth Social announcement",
+      "domain": "iran-israel",
+      "test_type": "true_clean_observed_event",
+      "sources": [
+        {
+          "id": "trump_kharg_strike_2026_03_14",
+          "type": "head_of_state_statement",
+          "date": "2026-03-14",
+          "publisher": "Donald Trump (Truth Social, @realDonaldTrump)",
+          "text": "Moments ago, at my direction, the United States Central Command executed one of the most powerful bombing raids in the History of the Middle East, and totally obliterated every MILITARY target in Iran's crown jewel, Kharg Island. Our Weapons are the most powerful and sophisticated that the World has ever known but, for reasons of decency, I have chosen NOT to wipe out the Oil Infrastructure on the Island."
+        },
+        {
+          "id": "polymarket_kharg_market_context",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-30",
+          "publisher": "Polymarket",
+          "text": "Kharg Island oil terminal market context (April 2026): 'Kharg Island's oil terminal—Iran's primary export hub handling most of its crude shipments—remains undamaged despite US airstrikes on nearby military targets as recently as April 7 and in March. US officials have explicitly avoided hitting energy infrastructure to limit global oil disruptions while enforcing a naval blockade.'"
+        },
+        {
+          "id": "polymarket_kharg_apr7_context",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-08",
+          "publisher": "Polymarket / contemporaneous reporting",
+          "text": "April 7, 2026: Additional US airstrikes on Kharg Island military targets reported, again preserving oil infrastructure. This was contemporaneous with US-Iran ceasefire announcement on April 8 (strikes preceded ceasefire by hours)."
+        }
+      ],
+      "gold": {
+        "verdict": "TRUE",
+        "supporting_source_ids": [
+          "trump_kharg_strike_2026_03_14",
+          "polymarket_kharg_market_context",
+          "polymarket_kharg_apr7_context"
+        ],
+        "rationale_summary": "US military conducted kinetic strikes on Kharg Island military targets in March 2026 (announced March 14 by Trump, attributed to USCENTCOM). Additional strikes occurred April 7, 2026. Polymarket market context confirms strikes hit nearby military targets while explicitly preserving oil terminal. The claim ('Kharg Island was hit') is supported by both Trump's direct announcement and contemporaneous market context. Note that 'Kharg Island' as a target is broader than 'Kharg Island oil terminal' (separate Polymarket market) — this distinction matters for related claims.",
+        "required_caveats": []
+      }
+    },
+    {
+      "claim_id": "iran-israel-015",
+      "claim": "The Kharg Island oil terminal was the subject of a kinetic strike by April 30, 2026 (11:59 PM ET).",
+      "claim_date_utc": "2026-04-30",
+      "claim_origin": "Polymarket 'Kharg Island oil terminal hit by April 30' market hypothesis",
+      "domain": "iran-israel",
+      "test_type": "false_strike_target_distinction",
+      "sources": [
+        {
+          "id": "polymarket_kharg_april_resolution",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-15",
+          "publisher": "Polymarket / UMA Optimistic Oracle",
+          "text": "Polymarket market 'Kharg Island oil terminal hit by April 15' resolved NO with $795,229 trading volume. Final outcome: No. No dispute. Subsequent April 30 deadline market trading at <1% chance, effectively settled NO. Resolution criteria: kinetic strike on the oil terminal specifically; military targets nearby do not count; intercepted missiles and SAM strikes excluded."
+        },
+        {
+          "id": "trump_kharg_strike_2026_03_14",
+          "type": "head_of_state_statement",
+          "date": "2026-03-14",
+          "publisher": "Donald Trump (Truth Social)",
+          "text": "I have chosen NOT to wipe out the Oil Infrastructure on the Island. [Trump explicitly preserved oil infrastructure during March 14 strike on Kharg.]"
+        },
+        {
+          "id": "polymarket_kharg_market_context",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-30",
+          "publisher": "Polymarket",
+          "text": "Kharg Island's oil terminal—Iran's primary export hub handling most of its crude shipments—remains undamaged despite US airstrikes on nearby military targets as recently as April 7 and in March. US officials have explicitly avoided hitting energy infrastructure to limit global oil disruptions."
+        },
+        {
+          "id": "trump_future_threat_kharg",
+          "type": "head_of_state_statement",
+          "date": "2026-04-15",
+          "publisher": "Donald Trump (Truth Social, later statement)",
+          "text": "If for any reason a deal is not shortly reached, which it probably will be, and if the Hormuz Strait is not immediately 'Open for Business,' we will conclude our lovely 'stay' in Iran by blowing up and completely obliterating all of their Electric Generating Plants, Oil Wells and Kharg Island (and possibly all desalinization plants!), which we have purposefully not yet 'touched.' [Trump confirms in later statement that oil infrastructure including Kharg has 'not yet' been touched — i.e. not yet struck.]"
+        }
+      ],
+      "gold": {
+        "verdict": "FALSE",
+        "supporting_source_ids": [
+          "polymarket_kharg_april_resolution",
+          "trump_kharg_strike_2026_03_14",
+          "polymarket_kharg_market_context",
+          "trump_future_threat_kharg"
+        ],
+        "rationale_summary": "While Kharg Island military targets were struck in March and April 2026, the oil terminal specifically was NOT subject to kinetic strike by April 30, 2026. Trump's March 14 strike statement explicitly preserved oil infrastructure ('for reasons of decency, I have chosen NOT to wipe out the Oil Infrastructure'). Trump's later statement confirms oil infrastructure 'not yet touched'. Polymarket's April 15 deadline market resolved NO with no dispute. Resolution criteria specifically required kinetic strike on the terminal; nearby military targets did not qualify. The strikes that did occur targeted military infrastructure on the island, not the oil terminal.",
+        "required_caveats": [
+          "Kharg Island military targets WERE struck in March and April 2026 — but oil terminal specifically was not.",
+          "Trump's threat to strike oil infrastructure as future retaliation is explicit, but threats are not actions.",
+          "This case requires precise reading of target subset: 'Kharg Island' (broad) vs 'Kharg Island oil terminal' (specific subset)."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-016",
+      "claim": "President Trump ordered the destruction of Iran's Kharg Island oil infrastructure in April 2026.",
+      "claim_date_utc": "2026-04-15",
+      "claim_origin": "Misreading of Trump threat statement as action announcement",
+      "domain": "iran-israel",
+      "test_type": "false_threat_vs_action",
+      "sources": [
+        {
+          "id": "trump_future_threat_kharg",
+          "type": "head_of_state_statement",
+          "date": "2026-04-15",
+          "publisher": "Donald Trump (Truth Social)",
+          "text": "If for any reason a deal is not shortly reached, which it probably will be, and if the Hormuz Strait is not immediately 'Open for Business,' we will conclude our lovely 'stay' in Iran by blowing up and completely obliterating all of their Electric Generating Plants, Oil Wells and Kharg Island (and possibly all desalinization plants!), which we have purposefully not yet 'touched.'"
+        },
+        {
+          "id": "trump_kharg_strike_2026_03_14",
+          "type": "head_of_state_statement",
+          "date": "2026-03-14",
+          "publisher": "Donald Trump (Truth Social)",
+          "text": "I have chosen NOT to wipe out the Oil Infrastructure on the Island."
+        },
+        {
+          "id": "polymarket_kharg_market_context",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-30",
+          "publisher": "Polymarket",
+          "text": "Kharg Island's oil terminal remains undamaged. US officials have explicitly avoided hitting energy infrastructure to limit global oil disruptions."
+        }
+      ],
+      "gold": {
+        "verdict": "FALSE",
+        "supporting_source_ids": [
+          "trump_future_threat_kharg",
+          "trump_kharg_strike_2026_03_14",
+          "polymarket_kharg_market_context"
+        ],
+        "rationale_summary": "Trump's April 15 statement is a conditional future threat ('if a deal is not shortly reached... we will conclude... by blowing up'), not an order or announcement of executed action. The statement explicitly says 'we have purposefully not yet touched' the oil infrastructure — confirming non-action through April 15. Trump's earlier March 14 statement explicitly preserved oil infrastructure. Polymarket context confirms oil infrastructure remained undamaged through April 30. The claim conflates a conditional threat with an executed order — these are categorically different in evidence-evaluation.",
+        "required_caveats": [
+          "Trump did THREATEN to destroy Kharg oil infrastructure as future retaliation — but threats are not orders.",
+          "Trump's own language ('not yet touched', 'will conclude') confirms non-action through statement date.",
+          "Pattern: belligerent leaders frequently issue conditional threats as negotiation leverage; conflating threats with actions is a known reasoning error."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-017",
+      "claim": "The Kharg Island oil terminal was the subject of a kinetic strike by March 31, 2026 (11:59 PM ET).",
+      "claim_date_utc": "2026-03-31",
+      "claim_origin": "Polymarket 'Kharg by March 31' market hypothesis",
+      "domain": "iran-israel",
+      "test_type": "false_temporal_deadline_target_specific",
+      "sources": [
+        {
+          "id": "polymarket_kharg_march31_resolution",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-01",
+          "publisher": "Polymarket",
+          "text": "Polymarket market 'Kharg Island oil terminal hit by March 31' resolved NO with $750,296 trading volume. Resolution criteria: kinetic strike on the oil terminal specifically by March 31 11:59 PM ET. Military targets and intercepted missiles excluded."
+        },
+        {
+          "id": "trump_kharg_strike_2026_03_14",
+          "type": "head_of_state_statement",
+          "date": "2026-03-14",
+          "publisher": "Donald Trump (Truth Social)",
+          "text": "Moments ago, at my direction, the United States Central Command executed one of the most powerful bombing raids in the History of the Middle East, and totally obliterated every MILITARY target in Iran's crown jewel, Kharg Island. [...] for reasons of decency, I have chosen NOT to wipe out the Oil Infrastructure on the Island."
+        }
+      ],
+      "gold": {
+        "verdict": "FALSE",
+        "supporting_source_ids": [
+          "polymarket_kharg_march31_resolution",
+          "trump_kharg_strike_2026_03_14"
+        ],
+        "rationale_summary": "March 14 strike on Kharg Island explicitly preserved oil infrastructure per Trump's own announcement. March 31 Polymarket deadline market resolved NO. The military targets struck do not satisfy the market's specific resolution criterion (kinetic strike on the oil terminal). The strike did happen, but on a different target subset than the claim specifies.",
+        "required_caveats": [
+          "Kharg Island military targets WERE struck before March 31 — but oil terminal specifically was not.",
+          "Resolution criteria distinguishes between 'Kharg Island' broadly and 'oil terminal' specifically — this temporal claim fails on the target-specificity dimension."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-018",
+      "claim": "Iran's Supreme Leader Ali Khamenei was killed during US-Israeli military operations in early 2026.",
+      "claim_date_utc": "2026-03-15",
+      "claim_origin": "Polymarket Khamenei market resolution / Iranian succession announcement",
+      "domain": "iran-israel",
+      "test_type": "true_clean_observed_event_consequential",
+      "sources": [
+        {
+          "id": "polymarket_iran_regime_context_apr26",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-26",
+          "publisher": "Polymarket",
+          "text": "Trader consensus heavily favors the Iranian regime's survival past June 30, reflecting its demonstrated resilience amid the aftermath of the February 2026 US-Israeli war, which killed Supreme Leader Ali Khamenei and prompted a swift transition to his son Mojtaba as new Supreme Leader."
+        },
+        {
+          "id": "polymarket_mojtaba_succession_context",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-26",
+          "publisher": "Polymarket",
+          "text": "Following the assassination of longtime Supreme Leader Ali Khamenei in early March 2026, Iran's Assembly of Experts swiftly selected his son, Mojtaba Khamenei, as successor amid escalating regional conflict. Recent intelligence reports and New York Times accounts detail Mojtaba's severe injuries from an airstrike—including multiple leg surgeries, facial burns impairing speech."
+        },
+        {
+          "id": "polymarket_khamenei_feb28_resolution",
+          "type": "prediction_market_resolution",
+          "date": "2026-03-01",
+          "publisher": "Polymarket / UMA Optimistic Oracle",
+          "text": "Polymarket market 'Khamenei out as Supreme Leader of Iran by February 28' resolved YES after dispute. Resolution criteria: 'Khamenei will be considered to be removed from power if he resigns, is detained, or otherwise loses his position or is prevented from fulfilling his duties.' UMA oracle settled YES based on consensus of credible reporting."
+        }
+      ],
+      "gold": {
+        "verdict": "TRUE",
+        "supporting_source_ids": [
+          "polymarket_iran_regime_context_apr26",
+          "polymarket_mojtaba_succession_context",
+          "polymarket_khamenei_feb28_resolution"
+        ],
+        "rationale_summary": "Multiple independent Polymarket market resolutions (Khamenei Feb 28 market resolved YES, Mojtaba succession market context, Iran regime market context) consistently confirm Ali Khamenei was killed during US-Israeli military operations in early 2026. The succession of Mojtaba Khamenei via Assembly of Experts provides institutional confirmation. While exact date of death has resolution ambiguity (death likely late Feb, formal succession in early-mid March), the fact of death itself is supported by consensus of credible reporting referenced across multiple market resolutions.",
+        "required_caveats": [
+          "Exact date of Khamenei's death has some resolution ambiguity — death likely occurred in late February but formal Iranian acknowledgment came in early-mid March 2026.",
+          "Polymarket Feb 28 market initially had a dispute over whether resolution criteria were met by deadline; eventually resolved YES."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-019",
+      "claim": "Iran's Supreme Leader Ali Khamenei was removed from power by January 31, 2026 (11:59 PM ET).",
+      "claim_date_utc": "2026-01-31",
+      "claim_origin": "Polymarket 'Khamenei out by January 31' market hypothesis",
+      "domain": "iran-israel",
+      "test_type": "false_temporal_deadline_dramatic_event_premature",
+      "sources": [
+        {
+          "id": "polymarket_khamenei_jan31_resolution",
+          "type": "prediction_market_resolution",
+          "date": "2026-02-01",
+          "publisher": "Polymarket",
+          "text": "Polymarket market 'Khamenei out as Supreme Leader of Iran by January 31' resolved NO with $49.7M total trading volume since launch January 4, 2026. As of January 31 11:59 PM ET, Khamenei remained Supreme Leader. Operation Epic Fury (US-Israeli strikes that ultimately killed him) had not yet begun — first US strikes occurred February 28, 2026."
+        },
+        {
+          "id": "polymarket_us_strikes_jan31_no",
+          "type": "prediction_market_resolution",
+          "date": "2026-02-01",
+          "publisher": "Polymarket",
+          "text": "Polymarket 'US strikes Iran by January 31' market resolved NO with $41.7M trading volume — confirming no US military action against Iran by January 31 deadline. Strikes ladder: all dates January 11 through February 27 resolved NO; February 28 market ($89.6M volume) resolved YES — marking start of US strikes on Iranian soil."
+        },
+        {
+          "id": "polymarket_iran_regime_context_apr26",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-26",
+          "publisher": "Polymarket",
+          "text": "The February 2026 US-Israeli war killed Supreme Leader Ali Khamenei. [Death occurred AFTER January 31 deadline, during late February operations.]"
+        }
+      ],
+      "gold": {
+        "verdict": "FALSE",
+        "supporting_source_ids": [
+          "polymarket_khamenei_jan31_resolution",
+          "polymarket_us_strikes_jan31_no"
+        ],
+        "rationale_summary": "Khamenei remained Supreme Leader through January 31, 2026. The Polymarket January 31 market resolved NO with $49.7M volume. The US-Israeli operations that ultimately killed him began February 28, 2026 — confirmed by Polymarket US strikes ladder showing first YES resolution at February 28 ($89.6M volume) and all preceding dates NO. The dramatic event (Khamenei's death) did happen, but eight weeks after this deadline.",
+        "required_caveats": [
+          "Khamenei was subsequently killed in late February/early March 2026 — but after this January 31 deadline.",
+          "Operation Epic Fury opened February 28, 2026 — January 31 deadline preceded all kinetic action."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-020",
+      "claim": "The United States forcibly removed Iran's Supreme Leader Ali Khamenei from power in early 2026.",
+      "claim_date_utc": "2026-03-15",
+      "claim_origin": "Polymarket 'US forcibly removes Khamenei' market language",
+      "domain": "iran-israel",
+      "test_type": "partially_true_definitional_attribution",
+      "sources": [
+        {
+          "id": "polymarket_iran_regime_context_apr26",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-26",
+          "publisher": "Polymarket",
+          "text": "The February 2026 US-Israeli war killed Supreme Leader Ali Khamenei. [Joint US-Israeli operation, not unilateral US action.]"
+        },
+        {
+          "id": "polymarket_us_forcibly_removes_market_language",
+          "type": "prediction_market_rules",
+          "date": "2026-01-14",
+          "publisher": "Polymarket",
+          "text": "This market will resolve to 'Yes' if the United States forcibly removes [Khamenei from power]. Non-qualifying examples include: 2011 removal of Gaddafi (Libyan anti-government forces removed him, not US forces — would not count); 1994 Haiti intervention (negotiated departure, not forcible removal — would not count); Milošević removal (domestic political process — would not count). Requires US forces directly accomplish removal."
+        },
+        {
+          "id": "polymarket_us_forcibly_removes_market_resolution",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-01",
+          "publisher": "Polymarket",
+          "text": "Polymarket market 'US forcibly removes Khamenei from power by March 31' had only $384.3K trading volume — a fraction of the broader Khamenei market ($49M+ volumes). Low engagement reflects market's strict attribution criteria; broader 'Khamenei out' market traded with much larger volume on the same underlying event."
+        },
+        {
+          "id": "polymarket_mojtaba_succession_context",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-26",
+          "publisher": "Polymarket",
+          "text": "Iran's Assembly of Experts swiftly selected his son, Mojtaba Khamenei, as successor amid escalating regional conflict. [Iranian institutional process selected successor — not US-imposed transition.]"
+        }
+      ],
+      "gold": {
+        "verdict": "PARTIALLY_TRUE",
+        "supporting_source_ids": [
+          "polymarket_iran_regime_context_apr26"
+        ],
+        "rationale_summary": "Khamenei was killed during a JOINT US-Israeli military operation, and Iran's Assembly of Experts then selected the successor through Iranian institutional process. The 'US forcibly removed' framing is definitionally narrow: US action contributed to his death (kinetic strike during joint operation), but: (1) it was not unilateral US action — Israeli participation, (2) succession was determined by Iranian Assembly of Experts, not imposed by US (unlike Gaddafi non-qualifying example), (3) Khamenei was killed, not 'removed from power and replaced' in the sense markets usually intend. The narrow market specifically rejected 'US forcibly removes' framing for Gaddafi/Haiti/Milošević cases due to similar attribution distinctions.",
+        "required_caveats": [
+          "Khamenei was killed during US-Israeli joint operations — US action contributed but was not unilateral.",
+          "Successor was selected through Iranian institutional process (Assembly of Experts), not imposed by US.",
+          "Polymarket 'US forcibly removes' market had distinct narrow framing vs broader 'Khamenei out' market — reflects definitional distinction.",
+          "Death of leader during military operations ≠ 'forcibly removed from power' in canonical political-removal sense."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-021",
+      "claim": "Mojtaba Khamenei is the current de facto Supreme Leader of Iran as of April 26, 2026.",
+      "claim_date_utc": "2026-04-26",
+      "claim_origin": "Polymarket 'Iran leadership change by..?' market context",
+      "domain": "iran-israel",
+      "test_type": "true_succession_confirmed",
+      "sources": [
+        {
+          "id": "polymarket_mojtaba_succession_context",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-26",
+          "publisher": "Polymarket",
+          "text": "Following the assassination of longtime Supreme Leader Ali Khamenei in early March 2026, Iran's Assembly of Experts swiftly selected his son, Mojtaba Khamenei, as successor amid escalating regional conflict. Recent intelligence reports and New York Times accounts from the past week detail Mojtaba's severe injuries from an airstrike—including multiple leg surgeries, facial burns impairing speech, and a possible prosthetic leg—prompting questions about his capacity. Traders weigh ongoing health uncertainty and power struggles against regime resilience, with no confirmed leadership shift since March."
+        },
+        {
+          "id": "polymarket_iran_regime_context_apr26",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-26",
+          "publisher": "Polymarket",
+          "text": "Despite ongoing nationwide protests sparked by economic collapse, currency devaluation, and war damages—exacerbated by internet blackouts and over 18,000 arrests—recent escalations in executions and security crackdowns by the IRGC have quelled widespread unrest, per US intelligence assessments in March affirming no imminent collapse risk. Shaky ceasefires and defiance signals from the new leadership underscore institutional continuity, with major upheaval unlikely barring unforeseen health crises."
+        }
+      ],
+      "gold": {
+        "verdict": "TRUE",
+        "supporting_source_ids": [
+          "polymarket_mojtaba_succession_context",
+          "polymarket_iran_regime_context_apr26"
+        ],
+        "rationale_summary": "Mojtaba Khamenei was selected as Supreme Leader by Iran's Assembly of Experts following his father's assassination in early March 2026. As of April 26, 2026, Polymarket market context confirms 'no confirmed leadership shift since March' and references 'defiance signals from the new leadership'. Despite injuries sustained during an airstrike (severe leg injuries, facial burns) and questions about his capacity, he remains de facto Supreme Leader. The Iran leadership change market trades on the question of his continued tenure — implicitly confirming current incumbency.",
+        "required_caveats": [
+          "Mojtaba sustained severe injuries during airstrike — leg surgeries, facial burns, possible prosthetic leg — which raise capacity questions.",
+          "His incumbency is institutional consensus, but health concerns create some uncertainty about long-term tenure."
+        ]
+      }
+    },
+    {
+      "claim_id": "iran-israel-022",
+      "claim": "The Islamic Republic of Iran's ruling regime was overthrown or collapsed by April 30, 2026.",
+      "claim_date_utc": "2026-04-30",
+      "claim_origin": "Polymarket 'Will the Iranian regime fall' market hypothesis (April subset)",
+      "domain": "iran-israel",
+      "test_type": "false_dramatic_event_did_not_occur",
+      "sources": [
+        {
+          "id": "polymarket_iran_regime_market_rules",
+          "type": "prediction_market_rules",
+          "date": "2026-04-26",
+          "publisher": "Polymarket",
+          "text": "This market will resolve to 'Yes' if the Islamic Republic of Iran's current ruling regime is overthrown, collapsed, or otherwise ceases to govern. This requires a broad consensus of reporting indicating that core structures of the Islamic Republic (e.g. the office of the Supreme Leader, the Guardian Council, IRGC control under clerical authority) have been dissolved, incapacitated, or replaced. Routine political events such as elections, reforms, or leadership succession do not qualify. Internal coups or power shifts that preserve the Islamic Republic's core structures also do not qualify."
+        },
+        {
+          "id": "polymarket_iran_regime_context_apr26",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-26",
+          "publisher": "Polymarket",
+          "text": "Trader consensus heavily favors the Iranian regime's survival past June 30, reflecting its demonstrated resilience amid the aftermath of the February 2026 US-Israeli war. Despite ongoing nationwide protests sparked by economic collapse, currency devaluation, and war damages—exacerbated by internet blackouts and over 18,000 arrests—recent escalations in executions and security crackdowns by the IRGC have quelled widespread unrest, per US intelligence assessments in March affirming no imminent collapse risk. Shaky ceasefires and defiance signals from the new leadership underscore institutional continuity."
+        },
+        {
+          "id": "polymarket_mojtaba_succession_context",
+          "type": "prediction_market_resolution",
+          "date": "2026-04-26",
+          "publisher": "Polymarket",
+          "text": "Iran's Assembly of Experts swiftly selected his son, Mojtaba Khamenei, as successor. [Continuation of Islamic Republic institutional process — Assembly of Experts and clerical authority maintained.]"
+        }
+      ],
+      "gold": {
+        "verdict": "FALSE",
+        "supporting_source_ids": [
+          "polymarket_iran_regime_context_apr26",
+          "polymarket_mojtaba_succession_context"
+        ],
+        "rationale_summary": "Despite Khamenei's assassination, the Islamic Republic's core structures remained intact through April 30, 2026. Assembly of Experts (a core Islamic Republic institution) functioned normally and selected Mojtaba Khamenei as successor — explicitly preserving institutional continuity. IRGC maintained security control. Polymarket market context confirms 'institutional continuity' and US intelligence assessment of 'no imminent collapse risk'. Per market's explicit rules, leadership succession (even of Supreme Leader) does NOT qualify as regime fall — only break in continuity of core structures qualifies.",
+        "required_caveats": [
+          "Supreme Leader Khamenei was killed and economic/social conditions deteriorated significantly — but the regime itself did not fall.",
+          "Market rules explicitly distinguish 'regime fall' (requires structural break) from 'leadership succession' (does not qualify).",
+          "Mass protests, 18,000+ arrests, internet blackouts represented stress on the regime but not its collapse."
+        ]
+      }
+    }
+  ]
+}

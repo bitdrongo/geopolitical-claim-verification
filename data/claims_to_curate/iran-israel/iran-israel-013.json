@@ -1,36 +1,51 @@
 {
-  "_target_label": "PARTIALLY_TRUE — core event confirmed; specific detail disputed.",
+  "_target_label": "PARTIALLY_TRUE — definitional dispute (blockade as ceasefire violation depends on scope reading)",
   "_domain_hint": "Iran / Israel / Houthi / IRGC theatre. Sources: Reuters, AP, Al Jazeera, BBC, IDF spokesperson, IRGC statements, Iranian state media (IRNA/Tasnim/Mehr/Press TV), UKMTO maritime bulletins, ISW Iran updates.",
-  "_comment_overall": "One claim entry. Drop the _comment_* fields after filling in. See data/SCHEMA.md for the full spec and decision rules.",
-  "claim_id": "REPLACE_WITH_UNIQUE_SLUG",
-  "_comment_claim_id": "Slug form, lowercase, hyphenated. Should encode topic + date for readability. Example: 'avdiivka-capture-feb17-2024'. Must be unique across the entire dataset.",
-  "test_type": "REPLACE_WITH_TEST_TYPE_LABEL",
-  "_comment_test_type": "Free-form label used in reports. Pattern: '<verdict>_<scenario>'. Examples: 'clean_TRUE', 'clean_FALSE', 'PARTIALLY_TRUE_strike_target', 'PARTIALLY_TRUE_casualty_count', 'UNVERIFIED_single_belligerent', 'UNVERIFIED_source_poisoned_one_side', 'UNVERIFIED_source_poisoned_state_media'.",
-  "claim": "REPLACE_WITH_ONE_FACTUAL_SENTENCE",
-  "_comment_claim": "Single factual sentence. Be specific: who did what, where, when. Avoid weasel words. Example: 'Russian forces captured the city of Avdiivka on February 17, 2024.'",
-  "claim_date_utc": "YYYY-MM-DD",
-  "_comment_claim_date_utc": "Date the claim refers to (NOT today). ISO 8601. The model is being asked: was this true on this date based on what was knowable then?",
-  "claim_origin": "REPLACE_WITH_ORIGIN",
-  "_comment_claim_origin": "Where the claim first surfaced. Examples: 'Russian milblogger Telegram', 'Houthi spokesman statement', 'Pro-IRGC Telegram channel', 'Iranian state TV'. This is context the model uses for source-weighting, not a source itself.",
+  "claim_id": "iran-israel-013",
+  "claim": "The US naval blockade of Iranian ports during April 2026 violated the April 8 ceasefire agreement.",
+  "claim_date_utc": "2026-04-22",
+  "claim_origin": "Iranian government accusation",
+  "domain": "iran-israel",
+  "test_type": "partially_true_definitional_dispute",
   "sources": [
     {
-      "_comment_source": "Each claim should have 1-8 sources. For TRUE / FALSE: at least 2 independent reliable ones. For PARTIALLY_TRUE: include the supporting AND the contradicting / qualifying. For UNVERIFIED single-belligerent: 1 source. For UNVERIFIED source-poisoned: 3-5 same-side sources.",
-      "id": "REPLACE_WITH_SLUG",
-      "_comment_id": "Slug unique within this claim. Example: 'isw-2024-02-17', 'reuters-apr1', 'houthi-mil-2024-03-14'.",
-      "type": "REPLACE_WITH_TYPE",
-      "_comment_type": "One of: think_tank_report | wire_service | belligerent_official | state_media | osint_account | academic_or_legal",
-      "reliability_prior": 0.0,
-      "_comment_reliability_prior": "Float in [0, 1]. Suggested priors per type are in SCHEMA.md.",
-      "text": "REPLACE_WITH_PARAPHRASED_EXCERPT",
-      "_comment_text": "1-3 sentence paraphrase containing the actual relevant content from this source. Don't paste full articles. Don't editorialize. Make sure the excerpt actually says what your gold answer claims it says."
+      "id": "iranian_violation_accusation",
+      "type": "belligerent_official",
+      "date": "2026-04-22",
+      "publisher": "Iranian government (Foreign Ministry channels)",
+      "text": "Iran accuses the US of ongoing ceasefire violations through the maintained naval blockade of Iranian ports in the Strait of Hormuz, and through ship seizures."
+    },
+    {
+      "id": "trump_extension_statement_2026_04_21",
+      "type": "head_of_state_statement",
+      "date": "2026-04-21",
+      "publisher": "Donald Trump (Truth Social)",
+      "text": "I have therefore directed our Military to continue the Blockade and, in all other respects, remain ready and able. [Trump explicitly maintains the blockade is consistent with continued ceasefire framing.]"
+    },
+    {
+      "id": "trump_original_ceasefire_2026_04_08",
+      "type": "head_of_state_statement",
+      "date": "2026-04-08",
+      "publisher": "Donald Trump (Truth Social)",
+      "text": "I agree to suspend the bombing and attack of Iran for a period of two weeks. This will be a double sided CEASEFIRE! [Original ceasefire defined narrowly as 'bombing and attack', not all military operations.]"
+    },
+    {
+      "id": "araghchi_original_ceasefire_2026_04_08",
+      "type": "belligerent_official",
+      "date": "2026-04-08",
+      "publisher": "Seyed Abbas Araghchi (Iranian Foreign Minister)",
+      "text": "If attacks against Iran are halted, our Powerful Armed Forces will cease their defensive operations. [Iranian framing: 'attacks halted' as condition.]"
     }
   ],
   "gold": {
-    "verdict": "TRUE | FALSE | PARTIALLY_TRUE | UNVERIFIED",
-    "_comment_verdict": "Choose using the Hybrid A+B+C rules in SCHEMA.md. When in doubt, prefer PARTIALLY_TRUE over TRUE, and UNVERIFIED over FALSE.",
-    "supporting_source_ids": [],
-    "_comment_supporting_source_ids": "STRICT. TRUE = sources affirmatively supporting. FALSE = sources affirmatively contradicting. PARTIALLY_TRUE = only sources supporting the TRUE component (NOT the disputed-detail sources). UNVERIFIED = MUST be []. Validator enforces.",
-    "must_cite_caveat_about": "",
-    "_comment_must_cite_caveat_about": "Empty for clean TRUE / FALSE. Non-empty for PARTIALLY_TRUE (the disputed dimension, e.g. 'identity of slain officer not independently verified') and UNVERIFIED (the deficit, e.g. 'all sources are Iranian state-media; no independent corroboration')."
+    "verdict": "PARTIALLY_TRUE",
+    "supporting_source_ids": ["iranian_violation_accusation"],
+    "rationale_summary": "The factual basis is real: US maintained naval blockade and ship seizures of Iranian ports continued through April 2026. Whether this constitutes 'violation of ceasefire' depends on definitional reading. Trump's original ceasefire announcement narrowly specified 'suspend the bombing and attack' — language about kinetic action, not naval operations. US position implicitly defines blockade as not 'attack' and therefore not violation. Iranian position defines naval blockade and ship seizures as 'attacks' falling under ceasefire scope. Both readings are defensible from the ambiguous original April 8 language, which did not specify scope of operations halted. This is a genuine definitional dispute, not a clear violation or clear compliance.",
+    "required_caveats": [
+      "The factual claim (blockade exists and continued) is true.",
+      "The legal/definitional claim (this constitutes violation) depends on how April 8 ceasefire scope is read.",
+      "Original April 8 language was ambiguous — narrow ('bombing and attack') vs broad ('all hostilities') readings both defensible.",
+      "Both parties' positions are internally consistent given different definitional frames."
+    ]
   }
 }

@@ -1,0 +1,396 @@
+{
+  "model": "prime-intellect/intellect-3",
+  "started_utc": "2026-04-27T09:18:28.963793+00:00",
+  "status": "ok",
+  "n_rollouts": 22,
+  "mean_composite": 0.7634090909090908,
+  "avg_metrics": {
+    "verdict_match": 0.6363636363636364,
+    "source_weighting": 0.7113636363636364,
+    "caveat_quality": 0.9772727272727273,
+    "hallucination_check": 1.0,
+    "num_turns": 1.0
+  },
+  "per_claim": [
+    {
+      "claim_id": "iran-israel-001",
+      "test_type": "clean_true_via_mediator",
+      "gold_verdict": "TRUE",
+      "reward": 0.79,
+      "metrics": {
+        "verdict_match": 1.0,
+        "source_weighting": 0.5,
+        "caveat_quality": 0.7,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 1425.0,
+        "output_tokens": 751.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-002",
+      "test_type": "false_temporal_deadline",
+      "gold_verdict": "FALSE",
+      "reward": 0.9999999999999999,
+      "metrics": {
+        "verdict_match": 1.0,
+        "source_weighting": 1.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 1043.0,
+        "output_tokens": 553.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-003",
+      "test_type": "false_overinterpretation",
+      "gold_verdict": "FALSE",
+      "reward": 0.30000000000000004,
+      "metrics": {
+        "verdict_match": 0.0,
+        "source_weighting": 0.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 1091.0,
+        "output_tokens": 654.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-004",
+      "test_type": "partially_true_definitional_gap",
+      "gold_verdict": "PARTIALLY_TRUE",
+      "reward": 0.41000000000000003,
+      "metrics": {
+        "verdict_match": 0.0,
+        "source_weighting": 0.5,
+        "caveat_quality": 0.8,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 985.0,
+        "output_tokens": 564.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-005",
+      "test_type": "false_narrative_framing",
+      "gold_verdict": "FALSE",
+      "reward": 0.6,
+      "metrics": {
+        "verdict_match": 0.0,
+        "source_weighting": 1.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 994.0,
+        "output_tokens": 819.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-006",
+      "test_type": "true_definitional_edge_case",
+      "gold_verdict": "TRUE",
+      "reward": 0.9400000000000001,
+      "metrics": {
+        "verdict_match": 1.0,
+        "source_weighting": 0.8,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 1208.0,
+        "output_tokens": 949.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-007",
+      "test_type": "false_temporal_deadline",
+      "gold_verdict": "FALSE",
+      "reward": 0.9999999999999999,
+      "metrics": {
+        "verdict_match": 1.0,
+        "source_weighting": 1.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 1031.0,
+        "output_tokens": 466.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-008",
+      "test_type": "unverified_source_poisoning",
+      "gold_verdict": "UNVERIFIED",
+      "reward": 0.9999999999999999,
+      "metrics": {
+        "verdict_match": 1.0,
+        "source_weighting": 1.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 885.0,
+        "output_tokens": 477.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-009",
+      "test_type": "false_definitional_exclusion",
+      "gold_verdict": "FALSE",
+      "reward": 0.9999999999999999,
+      "metrics": {
+        "verdict_match": 1.0,
+        "source_weighting": 1.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 899.0,
+        "output_tokens": 446.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-010",
+      "test_type": "false_unilateral_vs_mutual_distinction",
+      "gold_verdict": "FALSE",
+      "reward": 0.9999999999999999,
+      "metrics": {
+        "verdict_match": 1.0,
+        "source_weighting": 1.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 1314.0,
+        "output_tokens": 416.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-011",
+      "test_type": "partially_true_unilateral_action_framing",
+      "gold_verdict": "PARTIALLY_TRUE",
+      "reward": 0.44999999999999996,
+      "metrics": {
+        "verdict_match": 0.0,
+        "source_weighting": 0.5,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 906.0,
+        "output_tokens": 496.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-012",
+      "test_type": "false_contradicted_by_counterparty_behavior",
+      "gold_verdict": "FALSE",
+      "reward": 0.6,
+      "metrics": {
+        "verdict_match": 0.0,
+        "source_weighting": 1.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 908.0,
+        "output_tokens": 441.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-013",
+      "test_type": "partially_true_definitional_dispute",
+      "gold_verdict": "PARTIALLY_TRUE",
+      "reward": 0.30000000000000004,
+      "metrics": {
+        "verdict_match": 0.0,
+        "source_weighting": 0.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 1055.0,
+        "output_tokens": 876.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-014",
+      "test_type": "true_clean_observed_event",
+      "gold_verdict": "TRUE",
+      "reward": 0.955,
+      "metrics": {
+        "verdict_match": 1.0,
+        "source_weighting": 0.85,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 1045.0,
+        "output_tokens": 1294.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-015",
+      "test_type": "false_strike_target_distinction",
+      "gold_verdict": "FALSE",
+      "reward": 0.9999999999999999,
+      "metrics": {
+        "verdict_match": 1.0,
+        "source_weighting": 1.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 1194.0,
+        "output_tokens": 595.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-016",
+      "test_type": "false_threat_vs_action",
+      "gold_verdict": "FALSE",
+      "reward": 0.85,
+      "metrics": {
+        "verdict_match": 1.0,
+        "source_weighting": 0.5,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 966.0,
+        "output_tokens": 738.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-017",
+      "test_type": "false_temporal_deadline_target_specific",
+      "gold_verdict": "FALSE",
+      "reward": 0.9999999999999999,
+      "metrics": {
+        "verdict_match": 1.0,
+        "source_weighting": 1.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 930.0,
+        "output_tokens": 538.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-018",
+      "test_type": "true_clean_observed_event_consequential",
+      "gold_verdict": "TRUE",
+      "reward": 0.9999999999999999,
+      "metrics": {
+        "verdict_match": 1.0,
+        "source_weighting": 1.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 1062.0,
+        "output_tokens": 1650.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-019",
+      "test_type": "false_temporal_deadline_dramatic_event_premature",
+      "gold_verdict": "FALSE",
+      "reward": 0.9999999999999999,
+      "metrics": {
+        "verdict_match": 1.0,
+        "source_weighting": 1.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 1057.0,
+        "output_tokens": 386.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-020",
+      "test_type": "partially_true_definitional_attribution",
+      "gold_verdict": "PARTIALLY_TRUE",
+      "reward": 0.30000000000000004,
+      "metrics": {
+        "verdict_match": 0.0,
+        "source_weighting": 0.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 1143.0,
+        "output_tokens": 1330.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-021",
+      "test_type": "true_succession_confirmed",
+      "gold_verdict": "TRUE",
+      "reward": 0.30000000000000004,
+      "metrics": {
+        "verdict_match": 0.0,
+        "source_weighting": 0.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 1004.0,
+        "output_tokens": 731.0
+      }
+    },
+    {
+      "claim_id": "iran-israel-022",
+      "test_type": "false_dramatic_event_did_not_occur",
+      "gold_verdict": "FALSE",
+      "reward": 0.9999999999999999,
+      "metrics": {
+        "verdict_match": 1.0,
+        "source_weighting": 1.0,
+        "caveat_quality": 1.0,
+        "hallucination_check": 1.0,
+        "num_turns": 1.0
+      },
+      "token_usage": {
+        "input_tokens": 1114.0,
+        "output_tokens": 517.0
+      }
+    }
+  ],
+  "tokens_total": {
+    "in": 23259.0,
+    "out": 15687.0
+  },
+  "estimated_cost_usd": 0.0269075,
+  "wall_time_ms": 118985.11385917664
+}
