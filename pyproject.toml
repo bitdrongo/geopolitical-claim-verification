@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "geopolitical-claim-verification"
-version = "0.1.0"
+version = "0.1.1"
 description = "Single-turn verifiers env: classify factual geopolitical claims (TRUE/FALSE/PARTIALLY_TRUE/UNVERIFIED) by reasoning over mixed-reliability sources, with 22 claims anchored on the Operation Epic Fury period (US–Iran, Feb–Apr 2026)."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -12,6 +12,7 @@ license = "Apache-2.0"
 license-files = ["LICENSE"]
 authors = [{name = "bitdrongo"}]
 keywords = ["geopolitics", "reasoning", "claim-verification", "single-turn", "verifiable", "polymarket", "iran", "operation-epic-fury"]
+tags = ["geopolitics", "reasoning", "claim-verification", "single-turn", "verifiable", "polymarket", "iran", "operation-epic-fury"]
 dependencies = [
     "verifiers>=0.1.12",
     "datasets>=3.0.0",

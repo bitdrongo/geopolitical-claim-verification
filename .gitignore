@@ -70,3 +70,6 @@ data/cache/
 # Claude Code workspace config (operational notes, identity, permissions)
 CLAUDE.md
 .claude/
+
+# Prime CLI local push state
+.prime/
